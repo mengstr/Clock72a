@@ -1,0 +1,2055 @@
+
+Clock72a-avr.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         00000004  00800100  00000a6a  00000afe  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         00000a6a  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          000000b6  00800104  00800104  00000b02  2**0
+                  ALLOC
+  3 .stab         000006cc  00000000  00000000  00000b04  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  4 .stabstr      00000085  00000000  00000000  000011d0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_aranges 00000020  00000000  00000000  00001255  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_pubnames 00000236  00000000  00000000  00001275  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_info   00000c0f  00000000  00000000  000014ab  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_abbrev 0000030d  00000000  00000000  000020ba  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_line   00000bba  00000000  00000000  000023c7  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_frame  00000180  00000000  00000000  00002f84  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_str    00000366  00000000  00000000  00003104  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_loc    0000036f  00000000  00000000  0000346a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_ranges 00000018  00000000  00000000  000037d9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 34 00 	jmp	0x68	; 0x68 <__ctors_end>
+   4:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   8:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+   c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  10:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  14:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  18:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  1c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  20:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  24:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  28:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  2c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  30:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  34:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  38:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  3c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  40:	0c 94 ba 03 	jmp	0x774	; 0x774 <__vector_16>
+  44:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  48:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  4c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  50:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  54:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  58:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  5c:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+  60:	0c 94 4e 01 	jmp	0x29c	; 0x29c <__vector_24>
+  64:	0c 94 51 00 	jmp	0xa2	; 0xa2 <__bad_interrupt>
+
+00000068 <__ctors_end>:
+  68:	11 24       	eor	r1, r1
+  6a:	1f be       	out	0x3f, r1	; 63
+  6c:	cf ef       	ldi	r28, 0xFF	; 255
+  6e:	d4 e0       	ldi	r29, 0x04	; 4
+  70:	de bf       	out	0x3e, r29	; 62
+  72:	cd bf       	out	0x3d, r28	; 61
+
+00000074 <__do_copy_data>:
+  74:	11 e0       	ldi	r17, 0x01	; 1
+  76:	a0 e0       	ldi	r26, 0x00	; 0
+  78:	b1 e0       	ldi	r27, 0x01	; 1
+  7a:	ea e6       	ldi	r30, 0x6A	; 106
+  7c:	fa e0       	ldi	r31, 0x0A	; 10
+  7e:	02 c0       	rjmp	.+4      	; 0x84 <__do_copy_data+0x10>
+  80:	05 90       	lpm	r0, Z+
+  82:	0d 92       	st	X+, r0
+  84:	a4 30       	cpi	r26, 0x04	; 4
+  86:	b1 07       	cpc	r27, r17
+  88:	d9 f7       	brne	.-10     	; 0x80 <__do_copy_data+0xc>
+
+0000008a <__do_clear_bss>:
+  8a:	11 e0       	ldi	r17, 0x01	; 1
+  8c:	a4 e0       	ldi	r26, 0x04	; 4
+  8e:	b1 e0       	ldi	r27, 0x01	; 1
+  90:	01 c0       	rjmp	.+2      	; 0x94 <.do_clear_bss_start>
+
+00000092 <.do_clear_bss_loop>:
+  92:	1d 92       	st	X+, r1
+
+00000094 <.do_clear_bss_start>:
+  94:	aa 3b       	cpi	r26, 0xBA	; 186
+  96:	b1 07       	cpc	r27, r17
+  98:	e1 f7       	brne	.-8      	; 0x92 <.do_clear_bss_loop>
+  9a:	0e 94 3c 04 	call	0x878	; 0x878 <main>
+  9e:	0c 94 33 05 	jmp	0xa66	; 0xa66 <_exit>
+
+000000a2 <__bad_interrupt>:
+  a2:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+000000a6 <beginTransmission>:
+
+
+// !!!
+void beginTransmission(uint8_t address) {
+  // indicate that we are transmitting
+  transmitting = 1;
+  a6:	91 e0       	ldi	r25, 0x01	; 1
+  a8:	90 93 0b 01 	sts	0x010B, r25
+  // set address of targeted slave
+  txAddress = address;
+  ac:	80 93 08 01 	sts	0x0108, r24
+  // reset tx buffer iterator vars
+  txBufferIndex = 0;
+  b0:	10 92 09 01 	sts	0x0109, r1
+  txBufferLength = 0;
+  b4:	10 92 0a 01 	sts	0x010A, r1
+}
+  b8:	08 95       	ret
+
+000000ba <send>:
+// slave tx event callback
+// or after beginTransmission(address)
+// !!!
+void send(uint8_t data) {
+	// don't bother if buffer is full
+	if(txBufferLength >= BUFFER_LENGTH){
+  ba:	90 91 0a 01 	lds	r25, 0x010A
+  be:	90 32       	cpi	r25, 0x20	; 32
+  c0:	68 f4       	brcc	.+26     	; 0xdc <send+0x22>
+	  return;
+	}
+	// put byte in tx buffer
+	txBuffer[txBufferIndex] = data;
+  c2:	90 91 09 01 	lds	r25, 0x0109
+  c6:	e9 2f       	mov	r30, r25
+  c8:	f0 e0       	ldi	r31, 0x00	; 0
+  ca:	e6 56       	subi	r30, 0x66	; 102
+  cc:	fe 4f       	sbci	r31, 0xFE	; 254
+  ce:	80 83       	st	Z, r24
+	++txBufferIndex;
+  d0:	89 2f       	mov	r24, r25
+  d2:	8f 5f       	subi	r24, 0xFF	; 255
+  d4:	80 93 09 01 	sts	0x0109, r24
+	// update amount in buffer   
+	txBufferLength = txBufferIndex;
+  d8:	80 93 0a 01 	sts	0x010A, r24
+  dc:	08 95       	ret
+
+000000de <available>:
+
+// must be called in:
+// slave rx event callback
+// or after requestFrom(address, numBytes)
+// !!!
+uint8_t available(void) {
+  de:	80 91 07 01 	lds	r24, 0x0107
+  e2:	90 91 06 01 	lds	r25, 0x0106
+  return rxBufferLength - rxBufferIndex;
+}
+  e6:	89 1b       	sub	r24, r25
+  e8:	08 95       	ret
+
+000000ea <receive>:
+  // default to returning null char
+  // for people using with char strings
+  uint8_t value = '\0';
+  
+  // get each successive byte on each call
+  if(rxBufferIndex < rxBufferLength){
+  ea:	90 91 06 01 	lds	r25, 0x0106
+  ee:	80 91 07 01 	lds	r24, 0x0107
+  f2:	98 17       	cp	r25, r24
+  f4:	10 f0       	brcs	.+4      	; 0xfa <receive+0x10>
+  f6:	80 e0       	ldi	r24, 0x00	; 0
+  f8:	08 95       	ret
+    value = rxBuffer[rxBufferIndex];
+  fa:	e9 2f       	mov	r30, r25
+  fc:	f0 e0       	ldi	r31, 0x00	; 0
+  fe:	e6 58       	subi	r30, 0x86	; 134
+ 100:	fe 4f       	sbci	r31, 0xFE	; 254
+ 102:	80 81       	ld	r24, Z
+    ++rxBufferIndex;
+ 104:	9f 5f       	subi	r25, 0xFF	; 255
+ 106:	90 93 06 01 	sts	0x0106, r25
+  }
+
+  return value;
+}
+ 10a:	08 95       	ret
+
+0000010c <twi_init>:
+ * Output   none
+ */
+// !!!
+void twi_init(void) {
+  // initialize state
+  twi_state = TWI_READY;
+ 10c:	10 92 0c 01 	sts	0x010C, r1
+
+  #if defined(__AVR_ATmega168__) || defined(__AVR_ATmega8__) || defined(__AVR_ATmega328P__)
+    // activate internal pull-ups for twi
+    // as per note from atmega8 manual pg167
+    PORTC |= (1<<4);
+ 110:	44 9a       	sbi	0x08, 4	; 8
+    PORTC |= (1<<5);
+ 112:	45 9a       	sbi	0x08, 5	; 8
+    PORTD |= (1<<0);
+    PORTD |= (1<<1);
+  #endif
+
+  // initialize twi prescaler and bit rate
+  TWSR&= ~(1<<TWPS0);
+ 114:	e9 eb       	ldi	r30, 0xB9	; 185
+ 116:	f0 e0       	ldi	r31, 0x00	; 0
+ 118:	80 81       	ld	r24, Z
+ 11a:	8e 7f       	andi	r24, 0xFE	; 254
+ 11c:	80 83       	st	Z, r24
+  TWSR&= ~(1<<TWPS1);
+ 11e:	80 81       	ld	r24, Z
+ 120:	8d 7f       	andi	r24, 0xFD	; 253
+ 122:	80 83       	st	Z, r24
+  TWBR = ((F_CPU / TWI_FREQ) - 16) / 2;
+ 124:	88 e4       	ldi	r24, 0x48	; 72
+ 126:	80 93 b8 00 	sts	0x00B8, r24
+  SCL Frequency = CPU Clock Frequency / (16 + (2 * TWBR))
+  note: TWBR should be 10 or higher for master mode
+  It is 72 for a 16mhz Wiring board with 100kHz TWI */
+
+  // enable twi module, acks, and twi interrupt
+  TWCR = (1<<TWEN) | (1<<TWIE) | (1<<TWEA);
+ 12a:	85 e4       	ldi	r24, 0x45	; 69
+ 12c:	80 93 bc 00 	sts	0x00BC, r24
+}
+ 130:	08 95       	ret
+
+00000132 <begin>:
+
+
+
+// !!!
+void begin(void) {
+  rxBufferIndex = 0;
+ 132:	10 92 06 01 	sts	0x0106, r1
+  rxBufferLength = 0;
+ 136:	10 92 07 01 	sts	0x0107, r1
+  txBufferIndex = 0;
+ 13a:	10 92 09 01 	sts	0x0109, r1
+  txBufferLength = 0;
+ 13e:	10 92 0a 01 	sts	0x010A, r1
+  twi_init();
+ 142:	0e 94 86 00 	call	0x10c	; 0x10c <twi_init>
+}
+ 146:	08 95       	ret
+
+00000148 <twi_readFrom>:
+// !!!
+uint8_t twi_readFrom(uint8_t address, uint8_t* data, uint8_t length) {
+  uint8_t i;
+
+  // ensure data will fit into buffer
+  if(TWI_BUFFER_LENGTH < length){
+ 148:	41 32       	cpi	r20, 0x21	; 33
+ 14a:	10 f0       	brcs	.+4      	; 0x150 <twi_readFrom+0x8>
+ 14c:	40 e0       	ldi	r20, 0x00	; 0
+ 14e:	2f c0       	rjmp	.+94     	; 0x1ae <twi_readFrom+0x66>
+    return 0;
+  }
+
+  // wait until twi is ready, become master receiver
+  while(TWI_READY != twi_state){
+ 150:	90 91 0c 01 	lds	r25, 0x010C
+ 154:	99 23       	and	r25, r25
+ 156:	e1 f7       	brne	.-8      	; 0x150 <twi_readFrom+0x8>
+    continue;
+  }
+  twi_state = TWI_MRX;
+ 158:	91 e0       	ldi	r25, 0x01	; 1
+ 15a:	90 93 0c 01 	sts	0x010C, r25
+  // reset error state (0xFF.. no error occured)
+  twi_error = 0xFF;
+ 15e:	9f ef       	ldi	r25, 0xFF	; 255
+ 160:	90 93 77 01 	sts	0x0177, r25
+
+  // initialize buffer iteration vars
+  twi_masterBufferIndex = 0;
+ 164:	10 92 32 01 	sts	0x0132, r1
+  twi_masterBufferLength = length-1;  // This is not intuitive, read on...
+ 168:	94 2f       	mov	r25, r20
+ 16a:	91 50       	subi	r25, 0x01	; 1
+ 16c:	90 93 33 01 	sts	0x0133, r25
+  // received, causing that NACK to be sent in response to receiving the last
+  // expected byte of data.
+
+  // build sla+w, slave device address + w bit
+  twi_slarw = TW_READ;
+  twi_slarw |= address << 1;
+ 170:	88 0f       	add	r24, r24
+ 172:	81 60       	ori	r24, 0x01	; 1
+ 174:	80 93 0d 01 	sts	0x010D, r24
+
+  // send start condition
+  TWCR = (1<<TWEN) | (1<<TWIE) | (1<<TWEA) | (1<<TWINT) | (1<<TWSTA);
+ 178:	85 ee       	ldi	r24, 0xE5	; 229
+ 17a:	80 93 bc 00 	sts	0x00BC, r24
+
+  // wait for read operation to complete
+  while(TWI_MRX == twi_state){
+ 17e:	80 91 0c 01 	lds	r24, 0x010C
+ 182:	81 30       	cpi	r24, 0x01	; 1
+ 184:	e1 f3       	breq	.-8      	; 0x17e <twi_readFrom+0x36>
+    continue;
+  }
+
+  if (twi_masterBufferIndex < length)
+ 186:	80 91 32 01 	lds	r24, 0x0132
+ 18a:	84 17       	cp	r24, r20
+ 18c:	10 f4       	brcc	.+4      	; 0x192 <twi_readFrom+0x4a>
+    length = twi_masterBufferIndex;
+ 18e:	40 91 32 01 	lds	r20, 0x0132
+ 192:	80 e0       	ldi	r24, 0x00	; 0
+ 194:	90 e0       	ldi	r25, 0x00	; 0
+
+  // copy twi buffer to data
+  for(i = 0; i < length; ++i){
+ 196:	09 c0       	rjmp	.+18     	; 0x1aa <twi_readFrom+0x62>
+    data[i] = twi_masterBuffer[i];
+ 198:	fb 01       	movw	r30, r22
+ 19a:	e8 0f       	add	r30, r24
+ 19c:	f9 1f       	adc	r31, r25
+ 19e:	dc 01       	movw	r26, r24
+ 1a0:	ae 5e       	subi	r26, 0xEE	; 238
+ 1a2:	be 4f       	sbci	r27, 0xFE	; 254
+ 1a4:	2c 91       	ld	r18, X
+ 1a6:	20 83       	st	Z, r18
+ 1a8:	01 96       	adiw	r24, 0x01	; 1
+
+  if (twi_masterBufferIndex < length)
+    length = twi_masterBufferIndex;
+
+  // copy twi buffer to data
+  for(i = 0; i < length; ++i){
+ 1aa:	84 17       	cp	r24, r20
+ 1ac:	a8 f3       	brcs	.-22     	; 0x198 <twi_readFrom+0x50>
+    data[i] = twi_masterBuffer[i];
+  }
+	
+  return length;
+}
+ 1ae:	84 2f       	mov	r24, r20
+ 1b0:	08 95       	ret
+
+000001b2 <requestFrom>:
+  twi_init();
+}
+
+
+// !!!
+uint8_t requestFrom(uint8_t address, uint8_t quantity) {
+ 1b2:	46 2f       	mov	r20, r22
+  // clamp to buffer length
+  if(quantity > BUFFER_LENGTH){
+    quantity = BUFFER_LENGTH;
+  }
+  // perform blocking read into buffer
+  uint8_t read = twi_readFrom(address, rxBuffer, quantity);
+ 1b4:	61 32       	cpi	r22, 0x21	; 33
+ 1b6:	08 f0       	brcs	.+2      	; 0x1ba <requestFrom+0x8>
+ 1b8:	40 e2       	ldi	r20, 0x20	; 32
+ 1ba:	6a e7       	ldi	r22, 0x7A	; 122
+ 1bc:	71 e0       	ldi	r23, 0x01	; 1
+ 1be:	0e 94 a4 00 	call	0x148	; 0x148 <twi_readFrom>
+  // set rx buffer iterator vars
+  rxBufferIndex = 0;
+ 1c2:	10 92 06 01 	sts	0x0106, r1
+  rxBufferLength = read;
+ 1c6:	80 93 07 01 	sts	0x0107, r24
+
+  return read;
+}
+ 1ca:	08 95       	ret
+
+000001cc <twi_writeTo>:
+// !!!
+uint8_t twi_writeTo(uint8_t address, uint8_t* data, uint8_t length, uint8_t wait) {
+  uint8_t i;
+
+  // ensure data will fit into buffer
+  if(TWI_BUFFER_LENGTH < length){
+ 1cc:	41 32       	cpi	r20, 0x21	; 33
+ 1ce:	10 f0       	brcs	.+4      	; 0x1d4 <twi_writeTo+0x8>
+ 1d0:	81 e0       	ldi	r24, 0x01	; 1
+ 1d2:	08 95       	ret
+    return 1;
+  }
+
+  // wait until twi is ready, become master transmitter
+  while(TWI_READY != twi_state){
+ 1d4:	90 91 0c 01 	lds	r25, 0x010C
+ 1d8:	99 23       	and	r25, r25
+ 1da:	e1 f7       	brne	.-8      	; 0x1d4 <twi_writeTo+0x8>
+    continue;
+  }
+  twi_state = TWI_MTX;
+ 1dc:	92 e0       	ldi	r25, 0x02	; 2
+ 1de:	90 93 0c 01 	sts	0x010C, r25
+  // reset error state (0xFF.. no error occured)
+  twi_error = 0xFF;
+ 1e2:	9f ef       	ldi	r25, 0xFF	; 255
+ 1e4:	90 93 77 01 	sts	0x0177, r25
+
+  // initialize buffer iteration vars
+  twi_masterBufferIndex = 0;
+ 1e8:	10 92 32 01 	sts	0x0132, r1
+  twi_masterBufferLength = length;
+ 1ec:	40 93 33 01 	sts	0x0133, r20
+ 1f0:	db 01       	movw	r26, r22
+ 1f2:	e2 e1       	ldi	r30, 0x12	; 18
+ 1f4:	f1 e0       	ldi	r31, 0x01	; 1
+ *          2 .. address send, NACK received
+ *          3 .. data send, NACK received
+ *          4 .. other twi error (lost bus arbitration, bus error, ..)
+ */
+// !!!
+uint8_t twi_writeTo(uint8_t address, uint8_t* data, uint8_t length, uint8_t wait) {
+ 1f6:	50 e0       	ldi	r21, 0x00	; 0
+ 1f8:	4e 0f       	add	r20, r30
+ 1fa:	5f 1f       	adc	r21, r31
+  // initialize buffer iteration vars
+  twi_masterBufferIndex = 0;
+  twi_masterBufferLength = length;
+  
+  // copy data to twi buffer
+  for(i = 0; i < length; ++i){
+ 1fc:	02 c0       	rjmp	.+4      	; 0x202 <twi_writeTo+0x36>
+    twi_masterBuffer[i] = data[i];
+ 1fe:	9d 91       	ld	r25, X+
+ 200:	91 93       	st	Z+, r25
+  // initialize buffer iteration vars
+  twi_masterBufferIndex = 0;
+  twi_masterBufferLength = length;
+  
+  // copy data to twi buffer
+  for(i = 0; i < length; ++i){
+ 202:	e4 17       	cp	r30, r20
+ 204:	f5 07       	cpc	r31, r21
+ 206:	d9 f7       	brne	.-10     	; 0x1fe <twi_writeTo+0x32>
+    twi_masterBuffer[i] = data[i];
+  }
+  
+  // build sla+w, slave device address + w bit
+  twi_slarw = TW_WRITE;
+  twi_slarw |= address << 1;
+ 208:	90 e0       	ldi	r25, 0x00	; 0
+ 20a:	88 0f       	add	r24, r24
+ 20c:	99 1f       	adc	r25, r25
+ 20e:	80 93 0d 01 	sts	0x010D, r24
+  
+  // send start condition
+  TWCR = (1<<TWEN) | (1<<TWIE) | (1<<TWEA) | (1<<TWINT) | (1<<TWSTA);
+ 212:	85 ee       	ldi	r24, 0xE5	; 229
+ 214:	80 93 bc 00 	sts	0x00BC, r24
+
+  // wait for write operation to complete
+  while(wait && (TWI_MTX == twi_state)){
+ 218:	22 23       	and	r18, r18
+ 21a:	21 f0       	breq	.+8      	; 0x224 <twi_writeTo+0x58>
+ 21c:	80 91 0c 01 	lds	r24, 0x010C
+ 220:	82 30       	cpi	r24, 0x02	; 2
+ 222:	e1 f3       	breq	.-8      	; 0x21c <twi_writeTo+0x50>
+    continue;
+  }
+  
+  if (twi_error == 0xFF)
+ 224:	80 91 77 01 	lds	r24, 0x0177
+ 228:	8f 3f       	cpi	r24, 0xFF	; 255
+ 22a:	11 f4       	brne	.+4      	; 0x230 <twi_writeTo+0x64>
+ 22c:	80 e0       	ldi	r24, 0x00	; 0
+ 22e:	08 95       	ret
+    return 0;	// success
+  else if (twi_error == TW_MT_SLA_NACK)
+ 230:	80 91 77 01 	lds	r24, 0x0177
+ 234:	80 32       	cpi	r24, 0x20	; 32
+ 236:	11 f4       	brne	.+4      	; 0x23c <twi_writeTo+0x70>
+ 238:	82 e0       	ldi	r24, 0x02	; 2
+ 23a:	08 95       	ret
+    return 2;	// error: address send, nack received
+  else if (twi_error == TW_MT_DATA_NACK)
+ 23c:	80 91 77 01 	lds	r24, 0x0177
+ 240:	80 33       	cpi	r24, 0x30	; 48
+ 242:	11 f0       	breq	.+4      	; 0x248 <twi_writeTo+0x7c>
+ 244:	84 e0       	ldi	r24, 0x04	; 4
+ 246:	08 95       	ret
+ 248:	83 e0       	ldi	r24, 0x03	; 3
+    return 3;	// error: data send, nack received
+  else
+    return 4;	// other twi error
+}
+ 24a:	08 95       	ret
+
+0000024c <endTransmission>:
+
+
+// !!!
+uint8_t endTransmission(void) {
+  // transmit buffer (blocking)
+  int8_t ret = twi_writeTo(txAddress, txBuffer, txBufferLength, 1);
+ 24c:	80 91 08 01 	lds	r24, 0x0108
+ 250:	6a e9       	ldi	r22, 0x9A	; 154
+ 252:	71 e0       	ldi	r23, 0x01	; 1
+ 254:	40 91 0a 01 	lds	r20, 0x010A
+ 258:	21 e0       	ldi	r18, 0x01	; 1
+ 25a:	0e 94 e6 00 	call	0x1cc	; 0x1cc <twi_writeTo>
+  // reset tx buffer iterator vars
+  txBufferIndex = 0;
+ 25e:	10 92 09 01 	sts	0x0109, r1
+  txBufferLength = 0;
+ 262:	10 92 0a 01 	sts	0x010A, r1
+  // indicate that we are done transmitting
+  transmitting = 0;
+ 266:	10 92 0b 01 	sts	0x010B, r1
+  return ret;
+}
+ 26a:	08 95       	ret
+
+0000026c <twi_reply>:
+ * Output   none
+ */
+// !!!
+void twi_reply(uint8_t ack) {
+  // transmit master read ready signal, with or without ack
+  if(ack){
+ 26c:	88 23       	and	r24, r24
+ 26e:	11 f0       	breq	.+4      	; 0x274 <twi_reply+0x8>
+    TWCR = (1<<TWEN) | (1<<TWIE) | (1<<TWINT) | (1<<TWEA);
+ 270:	85 ec       	ldi	r24, 0xC5	; 197
+ 272:	01 c0       	rjmp	.+2      	; 0x276 <twi_reply+0xa>
+  }else{
+	  TWCR = (1<<TWEN) | (1<<TWIE) | (1<<TWINT);
+ 274:	85 e8       	ldi	r24, 0x85	; 133
+ 276:	80 93 bc 00 	sts	0x00BC, r24
+ 27a:	08 95       	ret
+
+0000027c <twi_stop>:
+ * Output   none
+ */
+// !!!
+void twi_stop(void) {
+  // send stop condition
+  TWCR = (1<<TWEN) | (1<<TWIE) | (1<<TWEA) | (1<<TWINT) | (1<<TWSTO);
+ 27c:	85 ed       	ldi	r24, 0xD5	; 213
+ 27e:	80 93 bc 00 	sts	0x00BC, r24
+
+  // wait for stop condition to be exectued on bus
+  // TWINT is not set after a stop condition!
+  while(TWCR & (1<<TWSTO)){
+ 282:	80 91 bc 00 	lds	r24, 0x00BC
+ 286:	84 fd       	sbrc	r24, 4
+ 288:	fc cf       	rjmp	.-8      	; 0x282 <twi_stop+0x6>
+    continue;
+  }
+
+  // update twi state
+  twi_state = TWI_READY;
+ 28a:	10 92 0c 01 	sts	0x010C, r1
+}
+ 28e:	08 95       	ret
+
+00000290 <twi_releaseBus>:
+ * Output   none
+ */
+// !!!
+void twi_releaseBus(void) {
+  // release bus
+  TWCR = (1<<TWEN) | (1<<TWIE) | (1<<TWEA) | (1<<TWINT);
+ 290:	85 ec       	ldi	r24, 0xC5	; 197
+ 292:	80 93 bc 00 	sts	0x00BC, r24
+
+  // update twi state
+  twi_state = TWI_READY;
+ 296:	10 92 0c 01 	sts	0x010C, r1
+}
+ 29a:	08 95       	ret
+
+0000029c <__vector_24>:
+
+
+
+
+// !!!
+SIGNAL(TWI_vect) {
+ 29c:	1f 92       	push	r1
+ 29e:	0f 92       	push	r0
+ 2a0:	0f b6       	in	r0, 0x3f	; 63
+ 2a2:	0f 92       	push	r0
+ 2a4:	11 24       	eor	r1, r1
+ 2a6:	2f 93       	push	r18
+ 2a8:	3f 93       	push	r19
+ 2aa:	4f 93       	push	r20
+ 2ac:	5f 93       	push	r21
+ 2ae:	6f 93       	push	r22
+ 2b0:	7f 93       	push	r23
+ 2b2:	8f 93       	push	r24
+ 2b4:	9f 93       	push	r25
+ 2b6:	af 93       	push	r26
+ 2b8:	bf 93       	push	r27
+ 2ba:	ef 93       	push	r30
+ 2bc:	ff 93       	push	r31
+  switch(TW_STATUS){
+ 2be:	80 91 b9 00 	lds	r24, 0x00B9
+ 2c2:	90 e0       	ldi	r25, 0x00	; 0
+ 2c4:	88 7f       	andi	r24, 0xF8	; 248
+ 2c6:	90 70       	andi	r25, 0x00	; 0
+ 2c8:	80 36       	cpi	r24, 0x60	; 96
+ 2ca:	91 05       	cpc	r25, r1
+ 2cc:	09 f4       	brne	.+2      	; 0x2d0 <__vector_24+0x34>
+ 2ce:	df c0       	rjmp	.+446    	; 0x48e <__vector_24+0x1f2>
+ 2d0:	81 36       	cpi	r24, 0x61	; 97
+ 2d2:	91 05       	cpc	r25, r1
+ 2d4:	e4 f5       	brge	.+120    	; 0x34e <__vector_24+0xb2>
+ 2d6:	88 32       	cpi	r24, 0x28	; 40
+ 2d8:	91 05       	cpc	r25, r1
+ 2da:	09 f4       	brne	.+2      	; 0x2de <__vector_24+0x42>
+ 2dc:	7e c0       	rjmp	.+252    	; 0x3da <__vector_24+0x13e>
+ 2de:	89 32       	cpi	r24, 0x29	; 41
+ 2e0:	91 05       	cpc	r25, r1
+ 2e2:	c4 f4       	brge	.+48     	; 0x314 <__vector_24+0x78>
+ 2e4:	80 31       	cpi	r24, 0x10	; 16
+ 2e6:	91 05       	cpc	r25, r1
+ 2e8:	09 f4       	brne	.+2      	; 0x2ec <__vector_24+0x50>
+ 2ea:	72 c0       	rjmp	.+228    	; 0x3d0 <__vector_24+0x134>
+ 2ec:	81 31       	cpi	r24, 0x11	; 17
+ 2ee:	91 05       	cpc	r25, r1
+ 2f0:	44 f4       	brge	.+16     	; 0x302 <__vector_24+0x66>
+ 2f2:	00 97       	sbiw	r24, 0x00	; 0
+ 2f4:	09 f4       	brne	.+2      	; 0x2f8 <__vector_24+0x5c>
+ 2f6:	34 c1       	rjmp	.+616    	; 0x560 <__stack+0x61>
+ 2f8:	88 30       	cpi	r24, 0x08	; 8
+ 2fa:	91 05       	cpc	r25, r1
+ 2fc:	09 f0       	breq	.+2      	; 0x300 <__vector_24+0x64>
+ 2fe:	3b c1       	rjmp	.+630    	; 0x576 <__stack+0x77>
+ 300:	67 c0       	rjmp	.+206    	; 0x3d0 <__vector_24+0x134>
+ 302:	88 31       	cpi	r24, 0x18	; 24
+ 304:	91 05       	cpc	r25, r1
+ 306:	09 f4       	brne	.+2      	; 0x30a <__vector_24+0x6e>
+ 308:	68 c0       	rjmp	.+208    	; 0x3da <__vector_24+0x13e>
+ 30a:	80 32       	cpi	r24, 0x20	; 32
+ 30c:	91 05       	cpc	r25, r1
+ 30e:	09 f0       	breq	.+2      	; 0x312 <__vector_24+0x76>
+ 310:	32 c1       	rjmp	.+612    	; 0x576 <__stack+0x77>
+ 312:	7e c0       	rjmp	.+252    	; 0x410 <__vector_24+0x174>
+ 314:	80 34       	cpi	r24, 0x40	; 64
+ 316:	91 05       	cpc	r25, r1
+ 318:	09 f4       	brne	.+2      	; 0x31c <__vector_24+0x80>
+ 31a:	a0 c0       	rjmp	.+320    	; 0x45c <__vector_24+0x1c0>
+ 31c:	81 34       	cpi	r24, 0x41	; 65
+ 31e:	91 05       	cpc	r25, r1
+ 320:	4c f4       	brge	.+18     	; 0x334 <__vector_24+0x98>
+ 322:	80 33       	cpi	r24, 0x30	; 48
+ 324:	91 05       	cpc	r25, r1
+ 326:	09 f4       	brne	.+2      	; 0x32a <__vector_24+0x8e>
+ 328:	7e c0       	rjmp	.+252    	; 0x426 <__vector_24+0x18a>
+ 32a:	88 33       	cpi	r24, 0x38	; 56
+ 32c:	91 05       	cpc	r25, r1
+ 32e:	09 f0       	breq	.+2      	; 0x332 <__vector_24+0x96>
+ 330:	22 c1       	rjmp	.+580    	; 0x576 <__stack+0x77>
+ 332:	84 c0       	rjmp	.+264    	; 0x43c <__vector_24+0x1a0>
+ 334:	80 35       	cpi	r24, 0x50	; 80
+ 336:	91 05       	cpc	r25, r1
+ 338:	09 f4       	brne	.+2      	; 0x33c <__vector_24+0xa0>
+ 33a:	84 c0       	rjmp	.+264    	; 0x444 <__vector_24+0x1a8>
+ 33c:	88 35       	cpi	r24, 0x58	; 88
+ 33e:	91 05       	cpc	r25, r1
+ 340:	09 f4       	brne	.+2      	; 0x344 <__vector_24+0xa8>
+ 342:	91 c0       	rjmp	.+290    	; 0x466 <__vector_24+0x1ca>
+ 344:	88 34       	cpi	r24, 0x48	; 72
+ 346:	91 05       	cpc	r25, r1
+ 348:	09 f0       	breq	.+2      	; 0x34c <__vector_24+0xb0>
+ 34a:	15 c1       	rjmp	.+554    	; 0x576 <__stack+0x77>
+ 34c:	98 c0       	rjmp	.+304    	; 0x47e <__vector_24+0x1e2>
+ 34e:	88 39       	cpi	r24, 0x98	; 152
+ 350:	91 05       	cpc	r25, r1
+ 352:	09 f4       	brne	.+2      	; 0x356 <__vector_24+0xba>
+ 354:	fd c0       	rjmp	.+506    	; 0x550 <__stack+0x51>
+ 356:	89 39       	cpi	r24, 0x99	; 153
+ 358:	91 05       	cpc	r25, r1
+ 35a:	ec f4       	brge	.+58     	; 0x396 <__vector_24+0xfa>
+ 35c:	88 37       	cpi	r24, 0x78	; 120
+ 35e:	91 05       	cpc	r25, r1
+ 360:	09 f4       	brne	.+2      	; 0x364 <__vector_24+0xc8>
+ 362:	95 c0       	rjmp	.+298    	; 0x48e <__vector_24+0x1f2>
+ 364:	89 37       	cpi	r24, 0x79	; 121
+ 366:	91 05       	cpc	r25, r1
+ 368:	4c f4       	brge	.+18     	; 0x37c <__vector_24+0xe0>
+ 36a:	88 36       	cpi	r24, 0x68	; 104
+ 36c:	91 05       	cpc	r25, r1
+ 36e:	09 f4       	brne	.+2      	; 0x372 <__vector_24+0xd6>
+ 370:	8e c0       	rjmp	.+284    	; 0x48e <__vector_24+0x1f2>
+ 372:	80 37       	cpi	r24, 0x70	; 112
+ 374:	91 05       	cpc	r25, r1
+ 376:	09 f0       	breq	.+2      	; 0x37a <__vector_24+0xde>
+ 378:	fe c0       	rjmp	.+508    	; 0x576 <__stack+0x77>
+ 37a:	89 c0       	rjmp	.+274    	; 0x48e <__vector_24+0x1f2>
+ 37c:	88 38       	cpi	r24, 0x88	; 136
+ 37e:	91 05       	cpc	r25, r1
+ 380:	09 f4       	brne	.+2      	; 0x384 <__vector_24+0xe8>
+ 382:	e6 c0       	rjmp	.+460    	; 0x550 <__stack+0x51>
+ 384:	80 39       	cpi	r24, 0x90	; 144
+ 386:	91 05       	cpc	r25, r1
+ 388:	09 f4       	brne	.+2      	; 0x38c <__vector_24+0xf0>
+ 38a:	87 c0       	rjmp	.+270    	; 0x49a <__vector_24+0x1fe>
+ 38c:	80 38       	cpi	r24, 0x80	; 128
+ 38e:	91 05       	cpc	r25, r1
+ 390:	09 f0       	breq	.+2      	; 0x394 <__vector_24+0xf8>
+ 392:	f1 c0       	rjmp	.+482    	; 0x576 <__stack+0x77>
+ 394:	82 c0       	rjmp	.+260    	; 0x49a <__vector_24+0x1fe>
+ 396:	80 3b       	cpi	r24, 0xB0	; 176
+ 398:	91 05       	cpc	r25, r1
+ 39a:	09 f4       	brne	.+2      	; 0x39e <__vector_24+0x102>
+ 39c:	b0 c0       	rjmp	.+352    	; 0x4fe <__vector_24+0x262>
+ 39e:	81 3b       	cpi	r24, 0xB1	; 177
+ 3a0:	91 05       	cpc	r25, r1
+ 3a2:	4c f4       	brge	.+18     	; 0x3b6 <__vector_24+0x11a>
+ 3a4:	80 3a       	cpi	r24, 0xA0	; 160
+ 3a6:	91 05       	cpc	r25, r1
+ 3a8:	09 f4       	brne	.+2      	; 0x3ac <__vector_24+0x110>
+ 3aa:	89 c0       	rjmp	.+274    	; 0x4be <__vector_24+0x222>
+ 3ac:	88 3a       	cpi	r24, 0xA8	; 168
+ 3ae:	91 05       	cpc	r25, r1
+ 3b0:	09 f0       	breq	.+2      	; 0x3b4 <__vector_24+0x118>
+ 3b2:	e1 c0       	rjmp	.+450    	; 0x576 <__stack+0x77>
+ 3b4:	a4 c0       	rjmp	.+328    	; 0x4fe <__vector_24+0x262>
+ 3b6:	80 3c       	cpi	r24, 0xC0	; 192
+ 3b8:	91 05       	cpc	r25, r1
+ 3ba:	09 f4       	brne	.+2      	; 0x3be <__vector_24+0x122>
+ 3bc:	cd c0       	rjmp	.+410    	; 0x558 <__stack+0x59>
+ 3be:	88 3c       	cpi	r24, 0xC8	; 200
+ 3c0:	91 05       	cpc	r25, r1
+ 3c2:	09 f4       	brne	.+2      	; 0x3c6 <__vector_24+0x12a>
+ 3c4:	c9 c0       	rjmp	.+402    	; 0x558 <__stack+0x59>
+ 3c6:	88 3b       	cpi	r24, 0xB8	; 184
+ 3c8:	91 05       	cpc	r25, r1
+ 3ca:	09 f0       	breq	.+2      	; 0x3ce <__vector_24+0x132>
+ 3cc:	d4 c0       	rjmp	.+424    	; 0x576 <__stack+0x77>
+ 3ce:	ac c0       	rjmp	.+344    	; 0x528 <__stack+0x29>
+    // All Master
+    case TW_START:     // sent start condition
+    case TW_REP_START: // sent repeated start condition
+      // copy device address and r/w bit to output register and ack
+      TWDR = twi_slarw;
+ 3d0:	80 91 0d 01 	lds	r24, 0x010D
+ 3d4:	80 93 bb 00 	sts	0x00BB, r24
+ 3d8:	b9 c0       	rjmp	.+370    	; 0x54c <__stack+0x4d>
+
+    // Master Transmitter
+    case TW_MT_SLA_ACK:  // slave receiver acked address
+    case TW_MT_DATA_ACK: // slave receiver acked data
+      // if there is data to send, send it, otherwise stop 
+      if(twi_masterBufferIndex < twi_masterBufferLength){
+ 3da:	90 91 32 01 	lds	r25, 0x0132
+ 3de:	80 91 33 01 	lds	r24, 0x0133
+ 3e2:	98 17       	cp	r25, r24
+ 3e4:	68 f4       	brcc	.+26     	; 0x400 <__vector_24+0x164>
+        // copy data to output register and ack
+        TWDR = twi_masterBuffer[twi_masterBufferIndex++];
+ 3e6:	80 91 32 01 	lds	r24, 0x0132
+ 3ea:	e8 2f       	mov	r30, r24
+ 3ec:	f0 e0       	ldi	r31, 0x00	; 0
+ 3ee:	ee 5e       	subi	r30, 0xEE	; 238
+ 3f0:	fe 4f       	sbci	r31, 0xFE	; 254
+ 3f2:	90 81       	ld	r25, Z
+ 3f4:	90 93 bb 00 	sts	0x00BB, r25
+ 3f8:	8f 5f       	subi	r24, 0xFF	; 255
+ 3fa:	80 93 32 01 	sts	0x0132, r24
+ 3fe:	a6 c0       	rjmp	.+332    	; 0x54c <__stack+0x4d>
+ * Output   none
+ */
+// !!!
+void twi_stop(void) {
+  // send stop condition
+  TWCR = (1<<TWEN) | (1<<TWIE) | (1<<TWEA) | (1<<TWINT) | (1<<TWSTO);
+ 400:	85 ed       	ldi	r24, 0xD5	; 213
+ 402:	80 93 bc 00 	sts	0x00BC, r24
+
+  // wait for stop condition to be exectued on bus
+  // TWINT is not set after a stop condition!
+  while(TWCR & (1<<TWSTO)){
+ 406:	80 91 bc 00 	lds	r24, 0x00BC
+ 40a:	84 fd       	sbrc	r24, 4
+ 40c:	fc cf       	rjmp	.-8      	; 0x406 <__vector_24+0x16a>
+ 40e:	b1 c0       	rjmp	.+354    	; 0x572 <__stack+0x73>
+      }else{
+        twi_stop();
+      }
+      break;
+    case TW_MT_SLA_NACK:  // address sent, nack received
+      twi_error = TW_MT_SLA_NACK;
+ 410:	80 e2       	ldi	r24, 0x20	; 32
+ 412:	80 93 77 01 	sts	0x0177, r24
+ * Output   none
+ */
+// !!!
+void twi_stop(void) {
+  // send stop condition
+  TWCR = (1<<TWEN) | (1<<TWIE) | (1<<TWEA) | (1<<TWINT) | (1<<TWSTO);
+ 416:	85 ed       	ldi	r24, 0xD5	; 213
+ 418:	80 93 bc 00 	sts	0x00BC, r24
+
+  // wait for stop condition to be exectued on bus
+  // TWINT is not set after a stop condition!
+  while(TWCR & (1<<TWSTO)){
+ 41c:	80 91 bc 00 	lds	r24, 0x00BC
+ 420:	84 fd       	sbrc	r24, 4
+ 422:	fc cf       	rjmp	.-8      	; 0x41c <__vector_24+0x180>
+ 424:	a6 c0       	rjmp	.+332    	; 0x572 <__stack+0x73>
+    case TW_MT_SLA_NACK:  // address sent, nack received
+      twi_error = TW_MT_SLA_NACK;
+      twi_stop();
+      break;
+    case TW_MT_DATA_NACK: // data sent, nack received
+      twi_error = TW_MT_DATA_NACK;
+ 426:	80 e3       	ldi	r24, 0x30	; 48
+ 428:	80 93 77 01 	sts	0x0177, r24
+ * Output   none
+ */
+// !!!
+void twi_stop(void) {
+  // send stop condition
+  TWCR = (1<<TWEN) | (1<<TWIE) | (1<<TWEA) | (1<<TWINT) | (1<<TWSTO);
+ 42c:	85 ed       	ldi	r24, 0xD5	; 213
+ 42e:	80 93 bc 00 	sts	0x00BC, r24
+
+  // wait for stop condition to be exectued on bus
+  // TWINT is not set after a stop condition!
+  while(TWCR & (1<<TWSTO)){
+ 432:	80 91 bc 00 	lds	r24, 0x00BC
+ 436:	84 fd       	sbrc	r24, 4
+ 438:	fc cf       	rjmp	.-8      	; 0x432 <__vector_24+0x196>
+ 43a:	9b c0       	rjmp	.+310    	; 0x572 <__stack+0x73>
+    case TW_MT_DATA_NACK: // data sent, nack received
+      twi_error = TW_MT_DATA_NACK;
+      twi_stop();
+      break;
+    case TW_MT_ARB_LOST: // lost bus arbitration
+      twi_error = TW_MT_ARB_LOST;
+ 43c:	88 e3       	ldi	r24, 0x38	; 56
+ 43e:	80 93 77 01 	sts	0x0177, r24
+ 442:	8a c0       	rjmp	.+276    	; 0x558 <__stack+0x59>
+      break;
+
+    // Master Receiver
+    case TW_MR_DATA_ACK: // data received, ack sent
+      // put byte into buffer
+      twi_masterBuffer[twi_masterBufferIndex++] = TWDR;
+ 444:	80 91 32 01 	lds	r24, 0x0132
+ 448:	90 91 bb 00 	lds	r25, 0x00BB
+ 44c:	e8 2f       	mov	r30, r24
+ 44e:	f0 e0       	ldi	r31, 0x00	; 0
+ 450:	ee 5e       	subi	r30, 0xEE	; 238
+ 452:	fe 4f       	sbci	r31, 0xFE	; 254
+ 454:	90 83       	st	Z, r25
+ 456:	8f 5f       	subi	r24, 0xFF	; 255
+ 458:	80 93 32 01 	sts	0x0132, r24
+    case TW_MR_SLA_ACK:  // address sent, ack received
+      // ack if more bytes are expected, otherwise nack
+      if(twi_masterBufferIndex < twi_masterBufferLength){
+ 45c:	90 91 32 01 	lds	r25, 0x0132
+ 460:	80 91 33 01 	lds	r24, 0x0133
+ 464:	71 c0       	rjmp	.+226    	; 0x548 <__stack+0x49>
+        twi_reply(0);
+      }
+      break;
+    case TW_MR_DATA_NACK: // data received, nack sent
+      // put final byte into buffer
+      twi_masterBuffer[twi_masterBufferIndex++] = TWDR;
+ 466:	80 91 32 01 	lds	r24, 0x0132
+ 46a:	90 91 bb 00 	lds	r25, 0x00BB
+ 46e:	e8 2f       	mov	r30, r24
+ 470:	f0 e0       	ldi	r31, 0x00	; 0
+ 472:	ee 5e       	subi	r30, 0xEE	; 238
+ 474:	fe 4f       	sbci	r31, 0xFE	; 254
+ 476:	90 83       	st	Z, r25
+ 478:	8f 5f       	subi	r24, 0xFF	; 255
+ 47a:	80 93 32 01 	sts	0x0132, r24
+ * Output   none
+ */
+// !!!
+void twi_stop(void) {
+  // send stop condition
+  TWCR = (1<<TWEN) | (1<<TWIE) | (1<<TWEA) | (1<<TWINT) | (1<<TWSTO);
+ 47e:	85 ed       	ldi	r24, 0xD5	; 213
+ 480:	80 93 bc 00 	sts	0x00BC, r24
+
+  // wait for stop condition to be exectued on bus
+  // TWINT is not set after a stop condition!
+  while(TWCR & (1<<TWSTO)){
+ 484:	80 91 bc 00 	lds	r24, 0x00BC
+ 488:	84 fd       	sbrc	r24, 4
+ 48a:	fc cf       	rjmp	.-8      	; 0x484 <__vector_24+0x1e8>
+ 48c:	72 c0       	rjmp	.+228    	; 0x572 <__stack+0x73>
+    case TW_SR_SLA_ACK:   // addressed, returned ack
+    case TW_SR_GCALL_ACK: // addressed generally, returned ack
+    case TW_SR_ARB_LOST_SLA_ACK:   // lost arbitration, returned ack
+    case TW_SR_ARB_LOST_GCALL_ACK: // lost arbitration, returned ack
+      // enter slave receiver mode
+      twi_state = TWI_SRX;
+ 48e:	83 e0       	ldi	r24, 0x03	; 3
+ 490:	80 93 0c 01 	sts	0x010C, r24
+      // indicate that rx buffer can be overwritten and ack
+      twi_rxBufferIndex = 0;
+ 494:	10 92 76 01 	sts	0x0176, r1
+ 498:	59 c0       	rjmp	.+178    	; 0x54c <__stack+0x4d>
+      twi_reply(1);
+      break;
+    case TW_SR_DATA_ACK:       // data received, returned ack
+    case TW_SR_GCALL_DATA_ACK: // data received generally, returned ack
+      // if there is still room in the rx buffer
+      if(twi_rxBufferIndex < TWI_BUFFER_LENGTH){
+ 49a:	80 91 76 01 	lds	r24, 0x0176
+ 49e:	80 32       	cpi	r24, 0x20	; 32
+ 4a0:	08 f0       	brcs	.+2      	; 0x4a4 <__vector_24+0x208>
+ 4a2:	56 c0       	rjmp	.+172    	; 0x550 <__stack+0x51>
+        // put byte in buffer and ack
+        twi_rxBuffer[twi_rxBufferIndex++] = TWDR;
+ 4a4:	80 91 76 01 	lds	r24, 0x0176
+ 4a8:	90 91 bb 00 	lds	r25, 0x00BB
+ 4ac:	e8 2f       	mov	r30, r24
+ 4ae:	f0 e0       	ldi	r31, 0x00	; 0
+ 4b0:	ea 5a       	subi	r30, 0xAA	; 170
+ 4b2:	fe 4f       	sbci	r31, 0xFE	; 254
+ 4b4:	90 83       	st	Z, r25
+ 4b6:	8f 5f       	subi	r24, 0xFF	; 255
+ 4b8:	80 93 76 01 	sts	0x0176, r24
+ 4bc:	47 c0       	rjmp	.+142    	; 0x54c <__stack+0x4d>
+        twi_reply(0);
+      }
+      break;
+    case TW_SR_STOP: // stop or repeated start condition received
+      // put a null char after data if there's room
+      if(twi_rxBufferIndex < TWI_BUFFER_LENGTH){
+ 4be:	80 91 76 01 	lds	r24, 0x0176
+ 4c2:	80 32       	cpi	r24, 0x20	; 32
+ 4c4:	30 f4       	brcc	.+12     	; 0x4d2 <__vector_24+0x236>
+        twi_rxBuffer[twi_rxBufferIndex] = '\0';
+ 4c6:	e0 91 76 01 	lds	r30, 0x0176
+ 4ca:	f0 e0       	ldi	r31, 0x00	; 0
+ 4cc:	ea 5a       	subi	r30, 0xAA	; 170
+ 4ce:	fe 4f       	sbci	r31, 0xFE	; 254
+ 4d0:	10 82       	st	Z, r1
+ * Output   none
+ */
+// !!!
+void twi_stop(void) {
+  // send stop condition
+  TWCR = (1<<TWEN) | (1<<TWIE) | (1<<TWEA) | (1<<TWINT) | (1<<TWSTO);
+ 4d2:	85 ed       	ldi	r24, 0xD5	; 213
+ 4d4:	80 93 bc 00 	sts	0x00BC, r24
+
+  // wait for stop condition to be exectued on bus
+  // TWINT is not set after a stop condition!
+  while(TWCR & (1<<TWSTO)){
+ 4d8:	80 91 bc 00 	lds	r24, 0x00BC
+ 4dc:	84 fd       	sbrc	r24, 4
+ 4de:	fc cf       	rjmp	.-8      	; 0x4d8 <__vector_24+0x23c>
+    continue;
+  }
+
+  // update twi state
+  twi_state = TWI_READY;
+ 4e0:	10 92 0c 01 	sts	0x010C, r1
+        twi_rxBuffer[twi_rxBufferIndex] = '\0';
+      }
+      // sends ack and stops interface for clock stretching
+      twi_stop();
+      // callback to user defined callback
+      twi_onSlaveReceive(twi_rxBuffer, twi_rxBufferIndex);
+ 4e4:	60 91 76 01 	lds	r22, 0x0176
+ 4e8:	e0 91 10 01 	lds	r30, 0x0110
+ 4ec:	f0 91 11 01 	lds	r31, 0x0111
+ 4f0:	86 e5       	ldi	r24, 0x56	; 86
+ 4f2:	91 e0       	ldi	r25, 0x01	; 1
+ 4f4:	70 e0       	ldi	r23, 0x00	; 0
+ 4f6:	09 95       	icall
+      // since we submit rx buffer to "wire" library, we can reset it
+      twi_rxBufferIndex = 0;
+ 4f8:	10 92 76 01 	sts	0x0176, r1
+ 4fc:	2d c0       	rjmp	.+90     	; 0x558 <__stack+0x59>
+    
+    // Slave Transmitter
+    case TW_ST_SLA_ACK:          // addressed, returned ack
+    case TW_ST_ARB_LOST_SLA_ACK: // arbitration lost, returned ack
+      // enter slave transmitter mode
+      twi_state = TWI_STX;
+ 4fe:	84 e0       	ldi	r24, 0x04	; 4
+ 500:	80 93 0c 01 	sts	0x010C, r24
+      // ready the tx buffer index for iteration
+      twi_txBufferIndex = 0;
+ 504:	10 92 54 01 	sts	0x0154, r1
+      // set tx buffer length to be zero, to verify if user changes it
+      twi_txBufferLength = 0;
+ 508:	10 92 55 01 	sts	0x0155, r1
+      // request for txBuffer to be filled and length to be set
+      // note: user must call twi_transmit(bytes, length) to do this
+      twi_onSlaveTransmit();
+ 50c:	e0 91 0e 01 	lds	r30, 0x010E
+ 510:	f0 91 0f 01 	lds	r31, 0x010F
+ 514:	09 95       	icall
+      // if they didn't change buffer & length, initialize it
+      if(0 == twi_txBufferLength){
+ 516:	80 91 55 01 	lds	r24, 0x0155
+ 51a:	88 23       	and	r24, r24
+ 51c:	29 f4       	brne	.+10     	; 0x528 <__stack+0x29>
+        twi_txBufferLength = 1;
+ 51e:	81 e0       	ldi	r24, 0x01	; 1
+ 520:	80 93 55 01 	sts	0x0155, r24
+        twi_txBuffer[0] = 0x00;
+ 524:	10 92 34 01 	sts	0x0134, r1
+      }
+      // transmit first byte from buffer, fall
+    case TW_ST_DATA_ACK: // byte sent, ack returned
+      // copy data to output register
+      TWDR = twi_txBuffer[twi_txBufferIndex++];
+ 528:	80 91 54 01 	lds	r24, 0x0154
+ 52c:	e8 2f       	mov	r30, r24
+ 52e:	f0 e0       	ldi	r31, 0x00	; 0
+ 530:	ec 5c       	subi	r30, 0xCC	; 204
+ 532:	fe 4f       	sbci	r31, 0xFE	; 254
+ 534:	90 81       	ld	r25, Z
+ 536:	90 93 bb 00 	sts	0x00BB, r25
+ 53a:	8f 5f       	subi	r24, 0xFF	; 255
+ 53c:	80 93 54 01 	sts	0x0154, r24
+      // if there is more to send, ack, otherwise nack
+      if(twi_txBufferIndex < twi_txBufferLength){
+ 540:	90 91 54 01 	lds	r25, 0x0154
+ 544:	80 91 55 01 	lds	r24, 0x0155
+ 548:	98 17       	cp	r25, r24
+ 54a:	10 f4       	brcc	.+4      	; 0x550 <__stack+0x51>
+ */
+// !!!
+void twi_reply(uint8_t ack) {
+  // transmit master read ready signal, with or without ack
+  if(ack){
+    TWCR = (1<<TWEN) | (1<<TWIE) | (1<<TWINT) | (1<<TWEA);
+ 54c:	85 ec       	ldi	r24, 0xC5	; 197
+ 54e:	01 c0       	rjmp	.+2      	; 0x552 <__stack+0x53>
+  }else{
+	  TWCR = (1<<TWEN) | (1<<TWIE) | (1<<TWINT);
+ 550:	85 e8       	ldi	r24, 0x85	; 133
+ 552:	80 93 bc 00 	sts	0x00BC, r24
+ 556:	0f c0       	rjmp	.+30     	; 0x576 <__stack+0x77>
+ */
+// !!!
+void twi_reply(uint8_t ack) {
+  // transmit master read ready signal, with or without ack
+  if(ack){
+    TWCR = (1<<TWEN) | (1<<TWIE) | (1<<TWINT) | (1<<TWEA);
+ 558:	85 ec       	ldi	r24, 0xC5	; 197
+ 55a:	80 93 bc 00 	sts	0x00BC, r24
+ 55e:	09 c0       	rjmp	.+18     	; 0x572 <__stack+0x73>
+
+    // All
+    case TW_NO_INFO:   // no state information
+      break;
+    case TW_BUS_ERROR: // bus error, illegal stop/start
+      twi_error = TW_BUS_ERROR;
+ 560:	10 92 77 01 	sts	0x0177, r1
+ * Output   none
+ */
+// !!!
+void twi_stop(void) {
+  // send stop condition
+  TWCR = (1<<TWEN) | (1<<TWIE) | (1<<TWEA) | (1<<TWINT) | (1<<TWSTO);
+ 564:	85 ed       	ldi	r24, 0xD5	; 213
+ 566:	80 93 bc 00 	sts	0x00BC, r24
+
+  // wait for stop condition to be exectued on bus
+  // TWINT is not set after a stop condition!
+  while(TWCR & (1<<TWSTO)){
+ 56a:	80 91 bc 00 	lds	r24, 0x00BC
+ 56e:	84 fd       	sbrc	r24, 4
+ 570:	fc cf       	rjmp	.-8      	; 0x56a <__stack+0x6b>
+    continue;
+  }
+
+  // update twi state
+  twi_state = TWI_READY;
+ 572:	10 92 0c 01 	sts	0x010C, r1
+    case TW_BUS_ERROR: // bus error, illegal stop/start
+      twi_error = TW_BUS_ERROR;
+      twi_stop();
+      break;
+  }
+}
+ 576:	ff 91       	pop	r31
+ 578:	ef 91       	pop	r30
+ 57a:	bf 91       	pop	r27
+ 57c:	af 91       	pop	r26
+ 57e:	9f 91       	pop	r25
+ 580:	8f 91       	pop	r24
+ 582:	7f 91       	pop	r23
+ 584:	6f 91       	pop	r22
+ 586:	5f 91       	pop	r21
+ 588:	4f 91       	pop	r20
+ 58a:	3f 91       	pop	r19
+ 58c:	2f 91       	pop	r18
+ 58e:	0f 90       	pop	r0
+ 590:	0f be       	out	0x3f, r0	; 63
+ 592:	0f 90       	pop	r0
+ 594:	1f 90       	pop	r1
+ 596:	18 95       	reti
+
+00000598 <ReadRTC>:
+
+
+// !!!
+void beginTransmission(uint8_t address) {
+  // indicate that we are transmitting
+  transmitting = 1;
+ 598:	91 e0       	ldi	r25, 0x01	; 1
+ 59a:	90 93 0b 01 	sts	0x010B, r25
+  // set address of targeted slave
+  txAddress = address;
+ 59e:	2f e6       	ldi	r18, 0x6F	; 111
+ 5a0:	20 93 08 01 	sts	0x0108, r18
+	// don't bother if buffer is full
+	if(txBufferLength >= BUFFER_LENGTH){
+	  return;
+	}
+	// put byte in tx buffer
+	txBuffer[txBufferIndex] = data;
+ 5a4:	80 93 9a 01 	sts	0x019A, r24
+	++txBufferIndex;
+ 5a8:	90 93 09 01 	sts	0x0109, r25
+	// update amount in buffer   
+	txBufferLength = txBufferIndex;
+ 5ac:	90 93 0a 01 	sts	0x010A, r25
+uint8_t ReadRTC(const uint8_t adr){
+  uint8_t data=0;
+ 
+  beginTransmission(RTCADDR);
+  send(adr);
+  endTransmission();
+ 5b0:	0e 94 26 01 	call	0x24c	; 0x24c <endTransmission>
+  requestFrom(RTCADDR,1);
+ 5b4:	8f e6       	ldi	r24, 0x6F	; 111
+ 5b6:	61 e0       	ldi	r22, 0x01	; 1
+ 5b8:	0e 94 d9 00 	call	0x1b2	; 0x1b2 <requestFrom>
+// must be called in:
+// slave rx event callback
+// or after requestFrom(address, numBytes)
+// !!!
+uint8_t available(void) {
+  return rxBufferLength - rxBufferIndex;
+ 5bc:	20 91 07 01 	lds	r18, 0x0107
+ 5c0:	90 91 06 01 	lds	r25, 0x0106
+ 5c4:	80 e0       	ldi	r24, 0x00	; 0
+ 
+  beginTransmission(RTCADDR);
+  send(adr);
+  endTransmission();
+  requestFrom(RTCADDR,1);
+  while (available()) data=receive();
+ 5c6:	08 c0       	rjmp	.+16     	; 0x5d8 <ReadRTC+0x40>
+  // default to returning null char
+  // for people using with char strings
+  uint8_t value = '\0';
+  
+  // get each successive byte on each call
+  if(rxBufferIndex < rxBufferLength){
+ 5c8:	92 17       	cp	r25, r18
+ 5ca:	f0 f7       	brcc	.-4      	; 0x5c8 <ReadRTC+0x30>
+    value = rxBuffer[rxBufferIndex];
+ 5cc:	e9 2f       	mov	r30, r25
+ 5ce:	f0 e0       	ldi	r31, 0x00	; 0
+ 5d0:	e6 58       	subi	r30, 0x86	; 134
+ 5d2:	fe 4f       	sbci	r31, 0xFE	; 254
+ 5d4:	80 81       	ld	r24, Z
+ 5d6:	9f 5f       	subi	r25, 0xFF	; 255
+ 
+  beginTransmission(RTCADDR);
+  send(adr);
+  endTransmission();
+  requestFrom(RTCADDR,1);
+  while (available()) data=receive();
+ 5d8:	29 17       	cp	r18, r25
+ 5da:	b1 f7       	brne	.-20     	; 0x5c8 <ReadRTC+0x30>
+ 5dc:	20 93 06 01 	sts	0x0106, r18
+
+  return data;
+}
+ 5e0:	08 95       	ret
+
+000005e2 <WriteRTCByte>:
+
+
+// !!!
+void beginTransmission(uint8_t address) {
+  // indicate that we are transmitting
+  transmitting = 1;
+ 5e2:	91 e0       	ldi	r25, 0x01	; 1
+ 5e4:	90 93 0b 01 	sts	0x010B, r25
+  // set address of targeted slave
+  txAddress = address;
+ 5e8:	9f e6       	ldi	r25, 0x6F	; 111
+ 5ea:	90 93 08 01 	sts	0x0108, r25
+	// don't bother if buffer is full
+	if(txBufferLength >= BUFFER_LENGTH){
+	  return;
+	}
+	// put byte in tx buffer
+	txBuffer[txBufferIndex] = data;
+ 5ee:	80 93 9a 01 	sts	0x019A, r24
+ 5f2:	60 93 9b 01 	sts	0x019B, r22
+	++txBufferIndex;
+ 5f6:	82 e0       	ldi	r24, 0x02	; 2
+ 5f8:	80 93 09 01 	sts	0x0109, r24
+	// update amount in buffer   
+	txBufferLength = txBufferIndex;
+ 5fc:	80 93 0a 01 	sts	0x010A, r24
+
+void WriteRTCByte(const uint8_t adr, const uint8_t data){
+  beginTransmission(RTCADDR);
+  send(adr);
+  send(data);
+  endTransmission();
+ 600:	0e 94 26 01 	call	0x24c	; 0x24c <endTransmission>
+} 
+ 604:	08 95       	ret
+
+00000606 <AllOff>:
+
+
+
+
+void AllOff() {
+	PORTD = 0;
+ 606:	1b b8       	out	0x0b, r1	; 11
+	DDRD = 0x00;	// INPUT
+ 608:	1a b8       	out	0x0a, r1	; 10
+	PORTB = 0;
+ 60a:	15 b8       	out	0x05, r1	; 5
+	DDRB = 0x00;	// INPUT
+ 60c:	14 b8       	out	0x04, r1	; 4
+}
+ 60e:	08 95       	ret
+
+00000610 <Light>:
+	uint8_t dpos;
+	uint8_t dgndbitmask;
+	uint8_t dposbitmask;
+	uint8_t b1,b2;
+
+	PORTD=0;
+ 610:	1b b8       	out	0x0b, r1	; 11
+	PORTB=0;
+ 612:	15 b8       	out	0x05, r1	; 5
+
+	dgnd=led>>3;
+ 614:	38 2f       	mov	r19, r24
+ 616:	36 95       	lsr	r19
+ 618:	36 95       	lsr	r19
+ 61a:	36 95       	lsr	r19
+	dpos=led%8;
+ 61c:	87 70       	andi	r24, 0x07	; 7
+	if (dgnd<=dpos) dpos++;
+ 61e:	83 17       	cp	r24, r19
+ 620:	08 f0       	brcs	.+2      	; 0x624 <Light+0x14>
+ 622:	8f 5f       	subi	r24, 0xFF	; 255
+	dgndbitmask=1<<dgnd;
+ 624:	41 e0       	ldi	r20, 0x01	; 1
+ 626:	50 e0       	ldi	r21, 0x00	; 0
+ 628:	ba 01       	movw	r22, r20
+ 62a:	02 c0       	rjmp	.+4      	; 0x630 <Light+0x20>
+ 62c:	66 0f       	add	r22, r22
+ 62e:	77 1f       	adc	r23, r23
+ 630:	3a 95       	dec	r19
+ 632:	e2 f7       	brpl	.-8      	; 0x62c <Light+0x1c>
+ 634:	36 2f       	mov	r19, r22
+	dposbitmask=1<<dpos;
+ 636:	ba 01       	movw	r22, r20
+ 638:	02 c0       	rjmp	.+4      	; 0x63e <Light+0x2e>
+ 63a:	66 0f       	add	r22, r22
+ 63c:	77 1f       	adc	r23, r23
+ 63e:	8a 95       	dec	r24
+ 640:	e2 f7       	brpl	.-8      	; 0x63a <Light+0x2a>
+ 642:	26 2f       	mov	r18, r22
+	b1=0;
+	b2=0;
+	if (dposbitmask==0) {b1=1; b2=1;}
+ 644:	66 23       	and	r22, r22
+ 646:	19 f4       	brne	.+6      	; 0x64e <Light+0x3e>
+ 648:	81 e0       	ldi	r24, 0x01	; 1
+ 64a:	91 e0       	ldi	r25, 0x01	; 1
+ 64c:	02 c0       	rjmp	.+4      	; 0x652 <Light+0x42>
+ 64e:	80 e0       	ldi	r24, 0x00	; 0
+ 650:	90 e0       	ldi	r25, 0x00	; 0
+	if (dgndbitmask==0) {b1=1; b2=0;}
+ 652:	33 23       	and	r19, r19
+ 654:	11 f4       	brne	.+4      	; 0x65a <Light+0x4a>
+ 656:	80 e0       	ldi	r24, 0x00	; 0
+ 658:	91 e0       	ldi	r25, 0x01	; 1
+
+	
+
+	DDRB=b1;
+ 65a:	94 b9       	out	0x04, r25	; 4
+	DDRD=dgndbitmask+dposbitmask;
+ 65c:	32 0f       	add	r19, r18
+ 65e:	3a b9       	out	0x0a, r19	; 10
+	PORTD=dposbitmask;
+ 660:	2b b9       	out	0x0b, r18	; 11
+	PORTB=b2;
+ 662:	85 b9       	out	0x05, r24	; 5
+
+}
+ 664:	08 95       	ret
+
+00000666 <GetTime>:
+
+
+void GetTime() {
+	uint8_t tmp;
+
+    tmp=ReadRTC(0);
+ 666:	80 e0       	ldi	r24, 0x00	; 0
+ 668:	0e 94 cc 02 	call	0x598	; 0x598 <ReadRTC>
+	second=(tmp&0x0f)+10*((tmp>>4)&0x07);
+ 66c:	28 2f       	mov	r18, r24
+ 66e:	26 95       	lsr	r18
+ 670:	26 95       	lsr	r18
+ 672:	26 95       	lsr	r18
+ 674:	2e 70       	andi	r18, 0x0E	; 14
+ 676:	92 2f       	mov	r25, r18
+ 678:	99 0f       	add	r25, r25
+ 67a:	99 0f       	add	r25, r25
+ 67c:	92 0f       	add	r25, r18
+ 67e:	8f 70       	andi	r24, 0x0F	; 15
+ 680:	98 0f       	add	r25, r24
+ 682:	90 93 02 01 	sts	0x0102, r25
+
+    tmp=ReadRTC(1);
+ 686:	81 e0       	ldi	r24, 0x01	; 1
+ 688:	0e 94 cc 02 	call	0x598	; 0x598 <ReadRTC>
+	minute=(tmp&0x0f)+10*((tmp>>4)&0x07);
+ 68c:	28 2f       	mov	r18, r24
+ 68e:	26 95       	lsr	r18
+ 690:	26 95       	lsr	r18
+ 692:	26 95       	lsr	r18
+ 694:	2e 70       	andi	r18, 0x0E	; 14
+ 696:	92 2f       	mov	r25, r18
+ 698:	99 0f       	add	r25, r25
+ 69a:	99 0f       	add	r25, r25
+ 69c:	92 0f       	add	r25, r18
+ 69e:	8f 70       	andi	r24, 0x0F	; 15
+ 6a0:	98 0f       	add	r25, r24
+ 6a2:	90 93 01 01 	sts	0x0101, r25
+
+    tmp=ReadRTC(2);
+ 6a6:	82 e0       	ldi	r24, 0x02	; 2
+ 6a8:	0e 94 cc 02 	call	0x598	; 0x598 <ReadRTC>
+	hour=(tmp&0x0f)+10*((tmp>>4)&0x03);
+ 6ac:	28 2f       	mov	r18, r24
+ 6ae:	26 95       	lsr	r18
+ 6b0:	26 95       	lsr	r18
+ 6b2:	26 95       	lsr	r18
+ 6b4:	26 70       	andi	r18, 0x06	; 6
+ 6b6:	92 2f       	mov	r25, r18
+ 6b8:	99 0f       	add	r25, r25
+ 6ba:	99 0f       	add	r25, r25
+ 6bc:	92 0f       	add	r25, r18
+ 6be:	8f 70       	andi	r24, 0x0F	; 15
+ 6c0:	98 0f       	add	r25, r24
+ 6c2:	90 93 00 01 	sts	0x0100, r25
+
+	second=37;
+ 6c6:	85 e2       	ldi	r24, 0x25	; 37
+ 6c8:	80 93 02 01 	sts	0x0102, r24
+	minute=0;
+ 6cc:	10 92 01 01 	sts	0x0101, r1
+	hour=8;
+ 6d0:	88 e0       	ldi	r24, 0x08	; 8
+ 6d2:	80 93 00 01 	sts	0x0100, r24
+}
+ 6d6:	08 95       	ret
+
+000006d8 <DisplayHMS>:
+
+
+
+#define X 10
+
+void DisplayHMS(uint8_t brightnessH, uint8_t brightnessM, uint8_t brightnessS) {
+ 6d8:	0f 93       	push	r16
+ 6da:	1f 93       	push	r17
+ 6dc:	18 2f       	mov	r17, r24
+ 6de:	04 2f       	mov	r16, r20
+
+	Light(60+(hour%12));
+ 6e0:	80 91 00 01 	lds	r24, 0x0100
+ 6e4:	6c e0       	ldi	r22, 0x0C	; 12
+ 6e6:	0e 94 27 05 	call	0xa4e	; 0xa4e <__udivmodqi4>
+ 6ea:	89 2f       	mov	r24, r25
+ 6ec:	84 5c       	subi	r24, 0xC4	; 196
+ 6ee:	0e 94 08 03 	call	0x610	; 0x610 <Light>
+ 6f2:	80 e0       	ldi	r24, 0x00	; 0
+ 6f4:	90 e0       	ldi	r25, 0x00	; 0
+    milliseconds can be achieved.
+ */
+void
+_delay_loop_2(uint16_t __count)
+{
+	__asm__ volatile (
+ 6f6:	21 2f       	mov	r18, r17
+ 6f8:	30 e0       	ldi	r19, 0x00	; 0
+ 6fa:	f9 01       	movw	r30, r18
+ 6fc:	31 97       	sbiw	r30, 0x01	; 1
+ 6fe:	f1 f7       	brne	.-4      	; 0x6fc <DisplayHMS+0x24>
+	for (int i=0; i<X; i++) 	_delay_loop_2(brightnessH);
+ 700:	01 96       	adiw	r24, 0x01	; 1
+ 702:	8a 30       	cpi	r24, 0x0A	; 10
+ 704:	91 05       	cpc	r25, r1
+ 706:	c9 f7       	brne	.-14     	; 0x6fa <DisplayHMS+0x22>
+
+
+
+
+void AllOff() {
+	PORTD = 0;
+ 708:	1b b8       	out	0x0b, r1	; 11
+	DDRD = 0x00;	// INPUT
+ 70a:	1a b8       	out	0x0a, r1	; 10
+	PORTB = 0;
+ 70c:	15 b8       	out	0x05, r1	; 5
+	DDRB = 0x00;	// INPUT
+ 70e:	14 b8       	out	0x04, r1	; 4
+ 710:	20 e0       	ldi	r18, 0x00	; 0
+ 712:	30 e0       	ldi	r19, 0x00	; 0
+ 714:	85 e6       	ldi	r24, 0x65	; 101
+ 716:	90 e0       	ldi	r25, 0x00	; 0
+ 718:	81 1b       	sub	r24, r17
+ 71a:	91 09       	sbc	r25, r1
+ 71c:	fc 01       	movw	r30, r24
+ 71e:	31 97       	sbiw	r30, 0x01	; 1
+ 720:	f1 f7       	brne	.-4      	; 0x71e <DisplayHMS+0x46>
+void DisplayHMS(uint8_t brightnessH, uint8_t brightnessM, uint8_t brightnessS) {
+
+	Light(60+(hour%12));
+	for (int i=0; i<X; i++) 	_delay_loop_2(brightnessH);
+	AllOff();
+	for (int i=0; i<X; i++) _delay_loop_2(101-brightnessH);
+ 722:	2f 5f       	subi	r18, 0xFF	; 255
+ 724:	3f 4f       	sbci	r19, 0xFF	; 255
+ 726:	2a 30       	cpi	r18, 0x0A	; 10
+ 728:	31 05       	cpc	r19, r1
+ 72a:	c1 f7       	brne	.-16     	; 0x71c <DisplayHMS+0x44>
+	Light(minute);
+	_delay_loop_2(brightnessM);
+	AllOff();
+	_delay_loop_2(101-brightnessM);
+*/
+	Light(second);
+ 72c:	80 91 02 01 	lds	r24, 0x0102
+ 730:	0e 94 08 03 	call	0x610	; 0x610 <Light>
+ 734:	80 e0       	ldi	r24, 0x00	; 0
+ 736:	90 e0       	ldi	r25, 0x00	; 0
+ 738:	20 2f       	mov	r18, r16
+ 73a:	30 e0       	ldi	r19, 0x00	; 0
+ 73c:	f9 01       	movw	r30, r18
+ 73e:	31 97       	sbiw	r30, 0x01	; 1
+ 740:	f1 f7       	brne	.-4      	; 0x73e <DisplayHMS+0x66>
+	for (int i=0; i<X; i++) _delay_loop_2(brightnessS);
+ 742:	01 96       	adiw	r24, 0x01	; 1
+ 744:	8a 30       	cpi	r24, 0x0A	; 10
+ 746:	91 05       	cpc	r25, r1
+ 748:	c9 f7       	brne	.-14     	; 0x73c <DisplayHMS+0x64>
+
+
+
+
+void AllOff() {
+	PORTD = 0;
+ 74a:	1b b8       	out	0x0b, r1	; 11
+	DDRD = 0x00;	// INPUT
+ 74c:	1a b8       	out	0x0a, r1	; 10
+	PORTB = 0;
+ 74e:	15 b8       	out	0x05, r1	; 5
+	DDRB = 0x00;	// INPUT
+ 750:	14 b8       	out	0x04, r1	; 4
+ 752:	20 e0       	ldi	r18, 0x00	; 0
+ 754:	30 e0       	ldi	r19, 0x00	; 0
+ 756:	85 e6       	ldi	r24, 0x65	; 101
+ 758:	90 e0       	ldi	r25, 0x00	; 0
+ 75a:	80 1b       	sub	r24, r16
+ 75c:	91 09       	sbc	r25, r1
+ 75e:	fc 01       	movw	r30, r24
+ 760:	31 97       	sbiw	r30, 0x01	; 1
+ 762:	f1 f7       	brne	.-4      	; 0x760 <DisplayHMS+0x88>
+	_delay_loop_2(101-brightnessM);
+*/
+	Light(second);
+	for (int i=0; i<X; i++) _delay_loop_2(brightnessS);
+	AllOff();
+	for (int i=0; i<X; i++) _delay_loop_2(101-brightnessS);
+ 764:	2f 5f       	subi	r18, 0xFF	; 255
+ 766:	3f 4f       	sbci	r19, 0xFF	; 255
+ 768:	2a 30       	cpi	r18, 0x0A	; 10
+ 76a:	31 05       	cpc	r19, r1
+ 76c:	c1 f7       	brne	.-16     	; 0x75e <DisplayHMS+0x86>
+}
+ 76e:	1f 91       	pop	r17
+ 770:	0f 91       	pop	r16
+ 772:	08 95       	ret
+
+00000774 <__vector_16>:
+#define LONGPRESS  	0x02
+#define SHORTCLICK 	0x04
+#define LONGCLICK 	0x08
+
+/* this ISR is called when TIMER0 overflows */
+ISR(TIMER0_OVF_vect) {
+ 774:	1f 92       	push	r1
+ 776:	0f 92       	push	r0
+ 778:	0f b6       	in	r0, 0x3f	; 63
+ 77a:	0f 92       	push	r0
+ 77c:	11 24       	eor	r1, r1
+ 77e:	8f 93       	push	r24
+
+	if ((PINC & 0x01) == 0) {
+ 780:	30 99       	sbic	0x06, 0	; 6
+ 782:	20 c0       	rjmp	.+64     	; 0x7c4 <__vector_16+0x50>
+		if (buttonAcnt==0) buttonA=0;
+ 784:	80 91 04 01 	lds	r24, 0x0104
+ 788:	88 23       	and	r24, r24
+ 78a:	11 f4       	brne	.+4      	; 0x790 <__vector_16+0x1c>
+ 78c:	10 92 78 01 	sts	0x0178, r1
+		if (buttonAcnt<250) { 
+ 790:	80 91 04 01 	lds	r24, 0x0104
+ 794:	8a 3f       	cpi	r24, 0xFA	; 250
+ 796:	78 f5       	brcc	.+94     	; 0x7f6 <__vector_16+0x82>
+			buttonAcnt++;
+ 798:	80 91 04 01 	lds	r24, 0x0104
+ 79c:	8f 5f       	subi	r24, 0xFF	; 255
+ 79e:	80 93 04 01 	sts	0x0104, r24
+			if (buttonAcnt==SHORTPRESSCNT) buttonA|=SHORTPRESS;
+ 7a2:	80 91 04 01 	lds	r24, 0x0104
+ 7a6:	85 30       	cpi	r24, 0x05	; 5
+ 7a8:	29 f4       	brne	.+10     	; 0x7b4 <__vector_16+0x40>
+ 7aa:	80 91 78 01 	lds	r24, 0x0178
+ 7ae:	81 60       	ori	r24, 0x01	; 1
+ 7b0:	80 93 78 01 	sts	0x0178, r24
+			if (buttonAcnt==LONGPRESSCNT) buttonA|=LONGPRESS;
+ 7b4:	80 91 04 01 	lds	r24, 0x0104
+ 7b8:	84 31       	cpi	r24, 0x14	; 20
+ 7ba:	e9 f4       	brne	.+58     	; 0x7f6 <__vector_16+0x82>
+ 7bc:	80 91 78 01 	lds	r24, 0x0178
+ 7c0:	82 60       	ori	r24, 0x02	; 2
+ 7c2:	17 c0       	rjmp	.+46     	; 0x7f2 <__vector_16+0x7e>
+		}
+	} else {
+		buttonAcnt=0;
+ 7c4:	10 92 04 01 	sts	0x0104, r1
+		if ((buttonA&SHORTPRESS)!=0) buttonA|=SHORTCLICK;
+ 7c8:	80 91 78 01 	lds	r24, 0x0178
+ 7cc:	80 ff       	sbrs	r24, 0
+ 7ce:	05 c0       	rjmp	.+10     	; 0x7da <__vector_16+0x66>
+ 7d0:	80 91 78 01 	lds	r24, 0x0178
+ 7d4:	84 60       	ori	r24, 0x04	; 4
+ 7d6:	80 93 78 01 	sts	0x0178, r24
+		if ((buttonA&LONGPRESS)!=0) buttonA|=LONGCLICK;
+ 7da:	80 91 78 01 	lds	r24, 0x0178
+ 7de:	81 ff       	sbrs	r24, 1
+ 7e0:	05 c0       	rjmp	.+10     	; 0x7ec <__vector_16+0x78>
+ 7e2:	80 91 78 01 	lds	r24, 0x0178
+ 7e6:	88 60       	ori	r24, 0x08	; 8
+ 7e8:	80 93 78 01 	sts	0x0178, r24
+		buttonA&=(SHORTCLICK|LONGCLICK);		
+ 7ec:	80 91 78 01 	lds	r24, 0x0178
+ 7f0:	8c 70       	andi	r24, 0x0C	; 12
+ 7f2:	80 93 78 01 	sts	0x0178, r24
+	}
+
+
+	if ((PINC & 0x02) == 0) {
+ 7f6:	31 99       	sbic	0x06, 1	; 6
+ 7f8:	20 c0       	rjmp	.+64     	; 0x83a <__vector_16+0xc6>
+		if (buttonBcnt==0) buttonB=0;
+ 7fa:	80 91 05 01 	lds	r24, 0x0105
+ 7fe:	88 23       	and	r24, r24
+ 800:	11 f4       	brne	.+4      	; 0x806 <__vector_16+0x92>
+ 802:	10 92 79 01 	sts	0x0179, r1
+		if (buttonBcnt<250) { 
+ 806:	80 91 05 01 	lds	r24, 0x0105
+ 80a:	8a 3f       	cpi	r24, 0xFA	; 250
+ 80c:	78 f5       	brcc	.+94     	; 0x86c <__vector_16+0xf8>
+			buttonBcnt++;
+ 80e:	80 91 05 01 	lds	r24, 0x0105
+ 812:	8f 5f       	subi	r24, 0xFF	; 255
+ 814:	80 93 05 01 	sts	0x0105, r24
+			if (buttonBcnt==SHORTPRESSCNT) buttonB|=SHORTPRESS;
+ 818:	80 91 05 01 	lds	r24, 0x0105
+ 81c:	85 30       	cpi	r24, 0x05	; 5
+ 81e:	29 f4       	brne	.+10     	; 0x82a <__vector_16+0xb6>
+ 820:	80 91 79 01 	lds	r24, 0x0179
+ 824:	81 60       	ori	r24, 0x01	; 1
+ 826:	80 93 79 01 	sts	0x0179, r24
+			if (buttonBcnt==LONGPRESSCNT) buttonB|=LONGPRESS;
+ 82a:	80 91 05 01 	lds	r24, 0x0105
+ 82e:	84 31       	cpi	r24, 0x14	; 20
+ 830:	e9 f4       	brne	.+58     	; 0x86c <__vector_16+0xf8>
+ 832:	80 91 79 01 	lds	r24, 0x0179
+ 836:	82 60       	ori	r24, 0x02	; 2
+ 838:	17 c0       	rjmp	.+46     	; 0x868 <__vector_16+0xf4>
+		}
+	} else {
+		buttonBcnt=0;
+ 83a:	10 92 05 01 	sts	0x0105, r1
+		if ((buttonB&SHORTPRESS)!=0) buttonB|=SHORTCLICK;
+ 83e:	80 91 79 01 	lds	r24, 0x0179
+ 842:	80 ff       	sbrs	r24, 0
+ 844:	05 c0       	rjmp	.+10     	; 0x850 <__vector_16+0xdc>
+ 846:	80 91 79 01 	lds	r24, 0x0179
+ 84a:	84 60       	ori	r24, 0x04	; 4
+ 84c:	80 93 79 01 	sts	0x0179, r24
+		if ((buttonB&LONGPRESS)!=0) buttonB|=LONGCLICK;
+ 850:	80 91 79 01 	lds	r24, 0x0179
+ 854:	81 ff       	sbrs	r24, 1
+ 856:	05 c0       	rjmp	.+10     	; 0x862 <__vector_16+0xee>
+ 858:	80 91 79 01 	lds	r24, 0x0179
+ 85c:	88 60       	ori	r24, 0x08	; 8
+ 85e:	80 93 79 01 	sts	0x0179, r24
+		buttonB&=(SHORTCLICK|LONGCLICK);		
+ 862:	80 91 79 01 	lds	r24, 0x0179
+ 866:	8c 70       	andi	r24, 0x0C	; 12
+ 868:	80 93 79 01 	sts	0x0179, r24
+	}
+}
+ 86c:	8f 91       	pop	r24
+ 86e:	0f 90       	pop	r0
+ 870:	0f be       	out	0x3f, r0	; 63
+ 872:	0f 90       	pop	r0
+ 874:	1f 90       	pop	r1
+ 876:	18 95       	reti
+
+00000878 <main>:
+
+
+
+
+
+int main (void) {
+ 878:	1f 93       	push	r17
+ 87a:	cf 93       	push	r28
+ 87c:	df 93       	push	r29
+	uint8_t bright=95;
+//	BrightnessTest();
+
+	MCUCR |= _BV(PUD);
+ 87e:	85 b7       	in	r24, 0x35	; 53
+ 880:	80 61       	ori	r24, 0x10	; 16
+ 882:	85 bf       	out	0x35, r24	; 53
+	
+
+    PORTC |= _BV(0);
+ 884:	40 9a       	sbi	0x08, 0	; 8
+    PORTC |= _BV(1);
+ 886:	41 9a       	sbi	0x08, 1	; 8
+
+
+	TCCR0B |= _BV(CS02) | _BV(CS00);
+ 888:	85 b5       	in	r24, 0x25	; 37
+ 88a:	85 60       	ori	r24, 0x05	; 5
+ 88c:	85 bd       	out	0x25, r24	; 37
+	/* Enable Timer Overflow Interrupts */
+	TIMSK0 |= _BV(TOIE0);
+ 88e:	80 91 6e 00 	lds	r24, 0x006E
+ 892:	81 60       	ori	r24, 0x01	; 1
+ 894:	80 93 6e 00 	sts	0x006E, r24
+
+	sei();
+ 898:	78 94       	sei
+
+
+
+
+void AllOff() {
+	PORTD = 0;
+ 89a:	1b b8       	out	0x0b, r1	; 11
+	DDRD = 0x00;	// INPUT
+ 89c:	1a b8       	out	0x0a, r1	; 10
+	PORTB = 0;
+ 89e:	15 b8       	out	0x05, r1	; 5
+	DDRB = 0x00;	// INPUT
+ 8a0:	14 b8       	out	0x04, r1	; 4
+	/* Enable Timer Overflow Interrupts */
+	TIMSK0 |= _BV(TOIE0);
+
+	sei();
+	AllOff();
+	begin();		// Initialize i2C
+ 8a2:	0e 94 99 00 	call	0x132	; 0x132 <begin>
+
+	for (;;) {
+
+		if (buttonA & LONGCLICK) {
+			buttonA=0;
+			if (second==0) second=60;
+ 8a6:	1c e3       	ldi	r17, 0x3C	; 60
+
+
+
+	for (;;) {
+
+		if (buttonA & LONGCLICK) {
+ 8a8:	80 91 78 01 	lds	r24, 0x0178
+ 8ac:	83 ff       	sbrs	r24, 3
+ 8ae:	0d c0       	rjmp	.+26     	; 0x8ca <main+0x52>
+			buttonA=0;
+ 8b0:	10 92 78 01 	sts	0x0178, r1
+			if (second==0) second=60;
+ 8b4:	80 91 02 01 	lds	r24, 0x0102
+ 8b8:	88 23       	and	r24, r24
+ 8ba:	11 f4       	brne	.+4      	; 0x8c0 <main+0x48>
+ 8bc:	10 93 02 01 	sts	0x0102, r17
+			second--;
+ 8c0:	80 91 02 01 	lds	r24, 0x0102
+ 8c4:	81 50       	subi	r24, 0x01	; 1
+ 8c6:	80 93 02 01 	sts	0x0102, r24
+		}
+		if (buttonA & SHORTCLICK) {
+ 8ca:	80 91 78 01 	lds	r24, 0x0178
+ 8ce:	82 ff       	sbrs	r24, 2
+ 8d0:	10 c0       	rjmp	.+32     	; 0x8f2 <main+0x7a>
+			buttonA&=~SHORTCLICK;
+ 8d2:	80 91 78 01 	lds	r24, 0x0178
+ 8d6:	8b 7f       	andi	r24, 0xFB	; 251
+ 8d8:	80 93 78 01 	sts	0x0178, r24
+			second++;
+ 8dc:	80 91 02 01 	lds	r24, 0x0102
+ 8e0:	8f 5f       	subi	r24, 0xFF	; 255
+ 8e2:	80 93 02 01 	sts	0x0102, r24
+			if (second>59) second=0;
+ 8e6:	80 91 02 01 	lds	r24, 0x0102
+ 8ea:	8c 33       	cpi	r24, 0x3C	; 60
+ 8ec:	10 f0       	brcs	.+4      	; 0x8f2 <main+0x7a>
+ 8ee:	10 92 02 01 	sts	0x0102, r1
+		}
+
+		if (buttonB&LONGCLICK) {
+ 8f2:	80 91 79 01 	lds	r24, 0x0179
+ 8f6:	83 ff       	sbrs	r24, 3
+ 8f8:	0d c0       	rjmp	.+26     	; 0x914 <main+0x9c>
+			buttonB=0;
+ 8fa:	10 92 79 01 	sts	0x0179, r1
+			if (minute==0) minute=60;
+ 8fe:	80 91 01 01 	lds	r24, 0x0101
+ 902:	88 23       	and	r24, r24
+ 904:	11 f4       	brne	.+4      	; 0x90a <main+0x92>
+ 906:	10 93 01 01 	sts	0x0101, r17
+			minute--;
+ 90a:	80 91 01 01 	lds	r24, 0x0101
+ 90e:	81 50       	subi	r24, 0x01	; 1
+ 910:	80 93 01 01 	sts	0x0101, r24
+		}
+		if (buttonB & SHORTCLICK) {
+ 914:	80 91 79 01 	lds	r24, 0x0179
+ 918:	82 ff       	sbrs	r24, 2
+ 91a:	10 c0       	rjmp	.+32     	; 0x93c <main+0xc4>
+			buttonB&= ~SHORTCLICK;
+ 91c:	80 91 79 01 	lds	r24, 0x0179
+ 920:	8b 7f       	andi	r24, 0xFB	; 251
+ 922:	80 93 79 01 	sts	0x0179, r24
+			minute++;
+ 926:	80 91 01 01 	lds	r24, 0x0101
+ 92a:	8f 5f       	subi	r24, 0xFF	; 255
+ 92c:	80 93 01 01 	sts	0x0101, r24
+			if (minute>59) minute=0;
+ 930:	80 91 01 01 	lds	r24, 0x0101
+ 934:	8c 33       	cpi	r24, 0x3C	; 60
+ 936:	10 f0       	brcs	.+4      	; 0x93c <main+0xc4>
+ 938:	10 92 01 01 	sts	0x0101, r1
+		}
+
+
+
+		GetTime();
+ 93c:	0e 94 33 03 	call	0x666	; 0x666 <GetTime>
+ 940:	c0 e0       	ldi	r28, 0x00	; 0
+ 942:	d0 e0       	ldi	r29, 0x00	; 0
+		for (int i=0; i<100; i++) {
+			DisplayHMS(bright, bright, bright);
+ 944:	8f e5       	ldi	r24, 0x5F	; 95
+ 946:	6f e5       	ldi	r22, 0x5F	; 95
+ 948:	4f e5       	ldi	r20, 0x5F	; 95
+ 94a:	0e 94 6c 03 	call	0x6d8	; 0x6d8 <DisplayHMS>
+		}
+
+
+
+		GetTime();
+		for (int i=0; i<100; i++) {
+ 94e:	21 96       	adiw	r28, 0x01	; 1
+ 950:	c4 36       	cpi	r28, 0x64	; 100
+ 952:	d1 05       	cpc	r29, r1
+ 954:	b9 f7       	brne	.-18     	; 0x944 <main+0xcc>
+ 956:	a8 cf       	rjmp	.-176    	; 0x8a8 <main+0x30>
+
+00000958 <BrightnessTest>:
+
+}
+
+
+
+void BrightnessTest() {
+ 958:	8f 92       	push	r8
+ 95a:	9f 92       	push	r9
+ 95c:	af 92       	push	r10
+ 95e:	bf 92       	push	r11
+ 960:	cf 92       	push	r12
+ 962:	df 92       	push	r13
+ 964:	ef 92       	push	r14
+ 966:	ff 92       	push	r15
+ 968:	0f 93       	push	r16
+ 96a:	1f 93       	push	r17
+ 96c:	cf 93       	push	r28
+ 96e:	df 93       	push	r29
+			}
+		}
+
+
+		AllOff();
+		DDRD=0xFF;
+ 970:	88 24       	eor	r8, r8
+ 972:	8a 94       	dec	r8
+		for (int i=0; i<500; i++) {
+			PORTD=0b11111110;
+ 974:	ae ef       	ldi	r26, 0xFE	; 254
+ 976:	9a 2e       	mov	r9, r26
+			_delay_ms(1);
+			PORTD=0b11111101;
+ 978:	fd ef       	ldi	r31, 0xFD	; 253
+ 97a:	af 2e       	mov	r10, r31
+			_delay_ms(1);
+			PORTD=0b11111011;
+ 97c:	eb ef       	ldi	r30, 0xFB	; 251
+ 97e:	be 2e       	mov	r11, r30
+			_delay_ms(1);
+			PORTD=0b11110111;
+ 980:	77 ef       	ldi	r23, 0xF7	; 247
+ 982:	c7 2e       	mov	r12, r23
+			_delay_ms(1);
+			PORTD=0b11101111;
+ 984:	6f ee       	ldi	r22, 0xEF	; 239
+ 986:	d6 2e       	mov	r13, r22
+			_delay_ms(1);
+			PORTD=0b11011111;
+ 988:	5f ed       	ldi	r21, 0xDF	; 223
+ 98a:	e5 2e       	mov	r14, r21
+			_delay_ms(1);
+			PORTD=0b10111111;
+ 98c:	4f eb       	ldi	r20, 0xBF	; 191
+ 98e:	f4 2e       	mov	r15, r20
+			_delay_ms(1);
+			PORTD=0b01111111;
+ 990:	0f e7       	ldi	r16, 0x7F	; 127
+
+
+
+
+void AllOff() {
+	PORTD = 0;
+ 992:	1b b8       	out	0x0b, r1	; 11
+	DDRD = 0x00;	// INPUT
+ 994:	1a b8       	out	0x0a, r1	; 10
+	PORTB = 0;
+ 996:	15 b8       	out	0x05, r1	; 5
+	DDRB = 0x00;	// INPUT
+ 998:	14 b8       	out	0x04, r1	; 4
+ 99a:	c0 e0       	ldi	r28, 0x00	; 0
+ 99c:	d0 e0       	ldi	r29, 0x00	; 0
+ 99e:	10 c0       	rjmp	.+32     	; 0x9c0 <BrightnessTest+0x68>
+
+
+		AllOff();
+		for (int i=0; i<50; i++) {
+			for (led=0; led<72; led++) {
+				Light(led);
+ 9a0:	81 2f       	mov	r24, r17
+ 9a2:	0e 94 08 03 	call	0x610	; 0x610 <Light>
+{
+	uint16_t __ticks;
+	double __tmp = ((F_CPU) / 4e3) * __ms;
+#if __HAS_DELAY_CYCLES && defined(__OPTIMIZE__)
+	extern void __builtin_avr_delay_cycles(unsigned long);
+	__builtin_avr_delay_cycles(__tmp);
+ 9a6:	87 ee       	ldi	r24, 0xE7	; 231
+ 9a8:	93 e0       	ldi	r25, 0x03	; 3
+ 9aa:	01 97       	sbiw	r24, 0x01	; 1
+ 9ac:	f1 f7       	brne	.-4      	; 0x9aa <BrightnessTest+0x52>
+ 9ae:	00 c0       	rjmp	.+0      	; 0x9b0 <BrightnessTest+0x58>
+ 9b0:	00 00       	nop
+	for (;;) {
+
+
+		AllOff();
+		for (int i=0; i<50; i++) {
+			for (led=0; led<72; led++) {
+ 9b2:	1f 5f       	subi	r17, 0xFF	; 255
+ 9b4:	18 34       	cpi	r17, 0x48	; 72
+ 9b6:	a1 f7       	brne	.-24     	; 0x9a0 <BrightnessTest+0x48>
+	
+	for (;;) {
+
+
+		AllOff();
+		for (int i=0; i<50; i++) {
+ 9b8:	21 96       	adiw	r28, 0x01	; 1
+ 9ba:	c2 33       	cpi	r28, 0x32	; 50
+ 9bc:	d1 05       	cpc	r29, r1
+ 9be:	11 f0       	breq	.+4      	; 0x9c4 <BrightnessTest+0x6c>
+ 9c0:	10 e0       	ldi	r17, 0x00	; 0
+ 9c2:	ee cf       	rjmp	.-36     	; 0x9a0 <BrightnessTest+0x48>
+
+
+
+
+void AllOff() {
+	PORTD = 0;
+ 9c4:	1b b8       	out	0x0b, r1	; 11
+	DDRD = 0x00;	// INPUT
+ 9c6:	1a b8       	out	0x0a, r1	; 10
+	PORTB = 0;
+ 9c8:	15 b8       	out	0x05, r1	; 5
+	DDRB = 0x00;	// INPUT
+ 9ca:	14 b8       	out	0x04, r1	; 4
+			}
+		}
+
+
+		AllOff();
+		DDRD=0xFF;
+ 9cc:	8a b8       	out	0x0a, r8	; 10
+ 9ce:	80 e0       	ldi	r24, 0x00	; 0
+ 9d0:	90 e0       	ldi	r25, 0x00	; 0
+		for (int i=0; i<500; i++) {
+			PORTD=0b11111110;
+ 9d2:	9b b8       	out	0x0b, r9	; 11
+ 9d4:	e7 ee       	ldi	r30, 0xE7	; 231
+ 9d6:	f3 e0       	ldi	r31, 0x03	; 3
+ 9d8:	31 97       	sbiw	r30, 0x01	; 1
+ 9da:	f1 f7       	brne	.-4      	; 0x9d8 <BrightnessTest+0x80>
+ 9dc:	00 c0       	rjmp	.+0      	; 0x9de <BrightnessTest+0x86>
+ 9de:	00 00       	nop
+			_delay_ms(1);
+			PORTD=0b11111101;
+ 9e0:	ab b8       	out	0x0b, r10	; 11
+ 9e2:	e7 ee       	ldi	r30, 0xE7	; 231
+ 9e4:	f3 e0       	ldi	r31, 0x03	; 3
+ 9e6:	31 97       	sbiw	r30, 0x01	; 1
+ 9e8:	f1 f7       	brne	.-4      	; 0x9e6 <BrightnessTest+0x8e>
+ 9ea:	00 c0       	rjmp	.+0      	; 0x9ec <BrightnessTest+0x94>
+ 9ec:	00 00       	nop
+			_delay_ms(1);
+			PORTD=0b11111011;
+ 9ee:	bb b8       	out	0x0b, r11	; 11
+ 9f0:	e7 ee       	ldi	r30, 0xE7	; 231
+ 9f2:	f3 e0       	ldi	r31, 0x03	; 3
+ 9f4:	31 97       	sbiw	r30, 0x01	; 1
+ 9f6:	f1 f7       	brne	.-4      	; 0x9f4 <BrightnessTest+0x9c>
+ 9f8:	00 c0       	rjmp	.+0      	; 0x9fa <BrightnessTest+0xa2>
+ 9fa:	00 00       	nop
+			_delay_ms(1);
+			PORTD=0b11110111;
+ 9fc:	cb b8       	out	0x0b, r12	; 11
+ 9fe:	e7 ee       	ldi	r30, 0xE7	; 231
+ a00:	f3 e0       	ldi	r31, 0x03	; 3
+ a02:	31 97       	sbiw	r30, 0x01	; 1
+ a04:	f1 f7       	brne	.-4      	; 0xa02 <BrightnessTest+0xaa>
+ a06:	00 c0       	rjmp	.+0      	; 0xa08 <BrightnessTest+0xb0>
+ a08:	00 00       	nop
+			_delay_ms(1);
+			PORTD=0b11101111;
+ a0a:	db b8       	out	0x0b, r13	; 11
+ a0c:	e7 ee       	ldi	r30, 0xE7	; 231
+ a0e:	f3 e0       	ldi	r31, 0x03	; 3
+ a10:	31 97       	sbiw	r30, 0x01	; 1
+ a12:	f1 f7       	brne	.-4      	; 0xa10 <BrightnessTest+0xb8>
+ a14:	00 c0       	rjmp	.+0      	; 0xa16 <BrightnessTest+0xbe>
+ a16:	00 00       	nop
+			_delay_ms(1);
+			PORTD=0b11011111;
+ a18:	eb b8       	out	0x0b, r14	; 11
+ a1a:	e7 ee       	ldi	r30, 0xE7	; 231
+ a1c:	f3 e0       	ldi	r31, 0x03	; 3
+ a1e:	31 97       	sbiw	r30, 0x01	; 1
+ a20:	f1 f7       	brne	.-4      	; 0xa1e <BrightnessTest+0xc6>
+ a22:	00 c0       	rjmp	.+0      	; 0xa24 <BrightnessTest+0xcc>
+ a24:	00 00       	nop
+			_delay_ms(1);
+			PORTD=0b10111111;
+ a26:	fb b8       	out	0x0b, r15	; 11
+ a28:	e7 ee       	ldi	r30, 0xE7	; 231
+ a2a:	f3 e0       	ldi	r31, 0x03	; 3
+ a2c:	31 97       	sbiw	r30, 0x01	; 1
+ a2e:	f1 f7       	brne	.-4      	; 0xa2c <BrightnessTest+0xd4>
+ a30:	00 c0       	rjmp	.+0      	; 0xa32 <BrightnessTest+0xda>
+ a32:	00 00       	nop
+			_delay_ms(1);
+			PORTD=0b01111111;
+ a34:	0b b9       	out	0x0b, r16	; 11
+ a36:	e7 ee       	ldi	r30, 0xE7	; 231
+ a38:	f3 e0       	ldi	r31, 0x03	; 3
+ a3a:	31 97       	sbiw	r30, 0x01	; 1
+ a3c:	f1 f7       	brne	.-4      	; 0xa3a <BrightnessTest+0xe2>
+ a3e:	00 c0       	rjmp	.+0      	; 0xa40 <BrightnessTest+0xe8>
+ a40:	00 00       	nop
+		}
+
+
+		AllOff();
+		DDRD=0xFF;
+		for (int i=0; i<500; i++) {
+ a42:	01 96       	adiw	r24, 0x01	; 1
+ a44:	f1 e0       	ldi	r31, 0x01	; 1
+ a46:	84 3f       	cpi	r24, 0xF4	; 244
+ a48:	9f 07       	cpc	r25, r31
+ a4a:	19 f6       	brne	.-122    	; 0x9d2 <BrightnessTest+0x7a>
+ a4c:	a2 cf       	rjmp	.-188    	; 0x992 <BrightnessTest+0x3a>
+
+00000a4e <__udivmodqi4>:
+ a4e:	99 1b       	sub	r25, r25
+ a50:	79 e0       	ldi	r23, 0x09	; 9
+ a52:	04 c0       	rjmp	.+8      	; 0xa5c <__udivmodqi4_ep>
+
+00000a54 <__udivmodqi4_loop>:
+ a54:	99 1f       	adc	r25, r25
+ a56:	96 17       	cp	r25, r22
+ a58:	08 f0       	brcs	.+2      	; 0xa5c <__udivmodqi4_ep>
+ a5a:	96 1b       	sub	r25, r22
+
+00000a5c <__udivmodqi4_ep>:
+ a5c:	88 1f       	adc	r24, r24
+ a5e:	7a 95       	dec	r23
+ a60:	c9 f7       	brne	.-14     	; 0xa54 <__udivmodqi4_loop>
+ a62:	80 95       	com	r24
+ a64:	08 95       	ret
+
+00000a66 <_exit>:
+ a66:	f8 94       	cli
+
+00000a68 <__stop_program>:
+ a68:	ff cf       	rjmp	.-2      	; 0xa68 <__stop_program>
